@@ -11,6 +11,9 @@ public class GridMaker : MonoBehaviour
     public GameObject Node2;
     private Vector3 placePosition;
     public quaternion rotation;
+    public Camera mainCam;
+    private Vector3 lookPosition;
+    private Vector3 camPosition;
 
     private void Start()
     {
