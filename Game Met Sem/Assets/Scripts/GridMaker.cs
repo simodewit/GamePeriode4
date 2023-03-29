@@ -7,8 +7,7 @@ public class GridMaker : MonoBehaviour
 {
     public float width;
     public float length;
-    public GameObject Node1;
-    public GameObject Node2;
+    public GameObject node;
     private Vector3 placePosition;
     public quaternion rotation;
     public Camera mainCam;
@@ -26,7 +25,10 @@ public class GridMaker : MonoBehaviour
                 placePosition.z = j + transform.position.z;
                 placePosition.y = transform.position.y;
 
-                Instantiate(Node2, placePosition, rotation, transform.parent);
+                var nodeToParrent = Instantiate(node, placePosition, rotation);
+                nodeToParrent.transform.parent = transform;
+                nodeToParrent.GetComponent<Node>().length = j;
+                nodeToParrent.GetComponent<Node>().witdh = i;
             }
         }
     }
