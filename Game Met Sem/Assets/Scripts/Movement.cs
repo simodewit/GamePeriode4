@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
     private Vector3 movement;
     public float moveSpeed;
     public PhotonView view;
+    
     private void Start()
     {
         view = GetComponent<PhotonView>();
