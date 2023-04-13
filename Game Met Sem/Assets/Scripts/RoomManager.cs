@@ -12,7 +12,11 @@ public class RoomManager : MonoBehaviourPunCallbacks
    {
         if(roomName.text != "")
         {
-            PhotonNetwork.CreateRoom(roomName.text);
+            if (roomName.text.Length <= 10)
+            {
+                PhotonNetwork.CreateRoom(roomName.text);
+            }
+               
         }
         
    }
@@ -21,7 +25,11 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         if (roomNameJoin.text != "")
         {
-            PhotonNetwork.JoinRoom(roomNameJoin.text);
+            if (roomNameJoin.text.Length <= 10)
+            {
+                PhotonNetwork.JoinRoom(roomNameJoin.text);
+            }
+                
         }
             
     }
