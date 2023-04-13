@@ -1,16 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using TMPro;
 using UnityEngine;
 
 public class LobbyManager : MonoBehaviour
 {
-    public TMP_Text roomsName;
-    public RoomManager roomManager;
-
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        roomsName.text = roomManager.roomName.text;
+        PhotonNetwork.Instantiate("Player", transform.position, Quaternion.identity);
     }
 }
