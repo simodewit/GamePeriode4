@@ -5,14 +5,12 @@ using UnityEngine;
 
 public class GridMaker : MonoBehaviour
 {
-    public float width;
-    public float length;
+    public int width;
+    public int length;
     public GameObject node;
     private Vector3 placePosition;
     public quaternion rotation;
     public Camera mainCam;
-    private Vector3 lookPosition;
-    private Vector3 camPosition;
 
     private void Start()
     {

@@ -397,7 +397,7 @@ PrefabInstance:
     - target: {fileID: 2914474897075593141, guid: 33f24d636eacc774584d343839a14e87,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2914474897075593141, guid: 33f24d636eacc774584d343839a14e87,
         type: 3}
@@ -465,6 +465,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3698333841475108138, guid: 8e7ffb933a147b24da206733365b0ad8,
         type: 3}
+      propertyPath: floor
+      value: 
+      objectReference: {fileID: 2100000, guid: c37c56ee648c9e44984ed4c2b91caef3, type: 2}
+    - target: {fileID: 3698333841475108138, guid: 8e7ffb933a147b24da206733365b0ad8,
+        type: 3}
+      propertyPath: grass
+      value: 
+      objectReference: {fileID: 2100000, guid: 9d548ca5fcf402446938311646313699, type: 2}
+    - target: {fileID: 3698333841475108138, guid: 8e7ffb933a147b24da206733365b0ad8,
+        type: 3}
       propertyPath: width
       value: 25
       objectReference: {fileID: 0}
@@ -478,10 +488,20 @@ PrefabInstance:
       propertyPath: mainCam
       value: 
       objectReference: {fileID: 582223848}
+    - target: {fileID: 3698333841475108138, guid: 8e7ffb933a147b24da206733365b0ad8,
+        type: 3}
+      propertyPath: innerWidth
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3698333841475108138, guid: 8e7ffb933a147b24da206733365b0ad8,
+        type: 3}
+      propertyPath: innerLength
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3698333841475108139, guid: 8e7ffb933a147b24da206733365b0ad8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3698333841475108139, guid: 8e7ffb933a147b24da206733365b0ad8,
         type: 3}
