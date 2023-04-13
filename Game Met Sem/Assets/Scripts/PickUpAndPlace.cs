@@ -9,6 +9,6 @@ public class PickUpAndPlace : MonoBehaviour
     public GameObject player;
     public void Update()
     {
-        Physics.Raycast(player.transform.position, )
+        
     }
 }
