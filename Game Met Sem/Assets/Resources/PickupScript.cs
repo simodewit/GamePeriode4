@@ -21,7 +21,7 @@ public class PickupScript : MonoBehaviour
     {
         check = true;
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetButtonDown("Fire1"))
         {
             if (pickedUpSomething == true)
             {
