@@ -255,7 +255,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sideAxis: {fileID: 1144158243}
-  camRotation: {x: 0.34202012, y: 0, z: 0, w: 0.9396926}
+  camRotation: {x: 0.42261827, y: 0, z: 0, w: 0.90630776}
+  ajustHeight: 0.38
 --- !u!1 &757570738
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,6 +428,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2914474897075593141, guid: 33f24d636eacc774584d343839a14e87,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914474897075593141, guid: 33f24d636eacc774584d343839a14e87,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914474897075593141, guid: 33f24d636eacc774584d343839a14e87,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914474897075593141, guid: 33f24d636eacc774584d343839a14e87,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 1
       objectReference: {fileID: 0}
@@ -508,12 +524,12 @@ PrefabInstance:
     - target: {fileID: 3698333841475108138, guid: 8e7ffb933a147b24da206733365b0ad8,
         type: 3}
       propertyPath: width
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3698333841475108138, guid: 8e7ffb933a147b24da206733365b0ad8,
         type: 3}
       propertyPath: length
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3698333841475108138, guid: 8e7ffb933a147b24da206733365b0ad8,
         type: 3}

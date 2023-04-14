@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
 {
     private Vector3 movement;
     public float moveSpeed;
+    public float actualMoveSpeed;
     public PhotonView view;
     
     private void Start()
@@ -19,7 +20,7 @@ public class Movement : MonoBehaviour
         {
             movement.x = Input.GetAxis("Horizontal");
             movement.z = Input.GetAxis("Vertical");
-            transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
+            transform.Translate(movement * actualMoveSpeed * Time.deltaTime, Space.World);
             movement.Normalize();
 
             if (movement != Vector3.zero)
@@ -27,6 +28,5 @@ public class Movement : MonoBehaviour
                 transform.forward = movement;
             }
         }
-       
     }
 }

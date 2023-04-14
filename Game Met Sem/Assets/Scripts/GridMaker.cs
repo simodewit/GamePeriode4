@@ -12,11 +12,15 @@ public class GridMaker : MonoBehaviour
     public quaternion rotation;
     public GameObject cam;
 
+    private Vector3 halfWidth;
+    public GameObject sideAxis;
+    public Quaternion camRotation;
+    public float ajustHeight;
+
     private void Start()
     {
         for(int i = 0; i < width; i++)
         {
-
             for( int j = 0; j < length; j++)
             {
                 placePosition.x = i + transform.position.x;
@@ -29,6 +33,16 @@ public class GridMaker : MonoBehaviour
                 nodeToParrent.GetComponent<Node>().witdh = i;
             }
         }
-        cam.GetComponent<CamScript>().CameraDistance(width);
+        CameraDistance(width);
+    }
+
+    public void CameraDistance(float width)
+    {
+        width -= 0.5f;
+        halfWidth.x = width * 0.5f;
+        halfWidth.z = width * ajustHeight;
+        halfWidth.y += 0.5f;
+        sideAxis.transform.position += halfWidth;
+        sideAxis.transform.rotation = camRotation;
     }
 }
