@@ -6,4 +6,5 @@ public class Node : MonoBehaviour
 {
     public float witdh;
     public float length;
+    public bool occupied;
 }

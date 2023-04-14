@@ -232,7 +232,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  actualMoveSpeed: 0
   view: {fileID: 0}
 --- !u!114 &-4289649499149324632
 MonoBehaviour:
@@ -303,7 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceToObject: {x: 0, y: 0, z: 0}
-  empty: {fileID: 0}
+  empty: {fileID: 6458248126413347855}
   radius: 0
   blueprintPlacePosition: {x: 0, y: 0, z: 0}
   blueprintRotation: {x: 0, y: 0, z: 0, w: 0}
