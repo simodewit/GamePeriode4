@@ -18,6 +18,15 @@ public class Movement : MonoBehaviour
     {
         if (view.IsMine)
         {
+
+            if (Input.GetButtonDown("Fire2"))
+            {
+                actualMoveSpeed = 0;
+            }
+            else
+            {
+                actualMoveSpeed = moveSpeed;
+            }
             movement.x = Input.GetAxis("Horizontal");
             movement.z = Input.GetAxis("Vertical");
             transform.Translate(movement * actualMoveSpeed * Time.deltaTime, Space.World);
