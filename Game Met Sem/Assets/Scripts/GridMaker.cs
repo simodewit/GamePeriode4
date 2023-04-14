@@ -10,7 +10,7 @@ public class GridMaker : MonoBehaviour
     public GameObject node;
     private Vector3 placePosition;
     public quaternion rotation;
-    public Camera mainCam;
+    public GameObject cam;
 
     private void Start()
     {
@@ -29,5 +29,6 @@ public class GridMaker : MonoBehaviour
                 nodeToParrent.GetComponent<Node>().witdh = i;
             }
         }
+        cam.GetComponent<CamScript>().CameraDistance(width);
     }
 }
