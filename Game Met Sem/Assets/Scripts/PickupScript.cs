@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 
-public class PickupScript : MonoBehaviour
+public class PickupScript : MonoBehaviourPun
 {
     [PunRPC]
     private RaycastHit hit;
@@ -29,9 +29,8 @@ public class PickupScript : MonoBehaviour
     public void Update()
     {
         if (view.IsMine)
-        {
+        { 
             check = true;
-
             if (Input.GetButtonDown("Fire1"))
             {
                 print("1");
