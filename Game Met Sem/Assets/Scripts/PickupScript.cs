@@ -20,6 +20,11 @@ public class PickupScript : MonoBehaviour
     public Quaternion blueprintRotation;
     public PhotonView view;
 
+    public void Start()
+    {
+        view = GetComponent<PhotonView>();
+    }
+
     public void Update()
     {
         if (view.IsMine)
