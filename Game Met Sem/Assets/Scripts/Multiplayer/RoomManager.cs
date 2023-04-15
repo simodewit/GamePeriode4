@@ -36,6 +36,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        PhotonNetwork.LoadLevel("LobbyRoom");
+        PhotonNetwork.LoadLevel("TestPickUp");
     }
 }
