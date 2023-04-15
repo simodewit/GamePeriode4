@@ -135,13 +135,13 @@ GameObject:
   - component: {fileID: 2914474897075593141}
   - component: {fileID: 2914474897075593140}
   - component: {fileID: 2914474897075593143}
-  - component: {fileID: 2914474897075593142}
   - component: {fileID: 2914474897075593097}
   - component: {fileID: 2914474897075593138}
   - component: {fileID: -4289649499149324632}
   - component: {fileID: -5920591765913050218}
   - component: {fileID: 9066757042610466141}
   - component: {fileID: -5838976854320261174}
+  - component: {fileID: 3599516819972188426}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -217,19 +217,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2914474897075593142
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2914474897075593096}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 2, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &2914474897075593097
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -335,6 +322,20 @@ MonoBehaviour:
   blueprintPlacePosition: {x: 0, y: 0, z: 0}
   blueprintRotation: {x: 0, y: 0, z: 0, w: 0}
   view: {fileID: 0}
+--- !u!136 &3599516819972188426
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2914474897075593096}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.49999997
+  m_Height: 1.9999999
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2914474897818878390
 GameObject:
   m_ObjectHideFlags: 0
