@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LobbyRoom.unity
     guid: cc7d744d6930afd41861db57a4909f3e
+  - enabled: 1
+    path: Assets/Scenes/TestPickUp.unity
+    guid: e3775a38752183d4db8a8bf70d4946ec
   m_configObjects: {}
