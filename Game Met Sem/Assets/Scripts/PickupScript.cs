@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PickupScript : MonoBehaviour
 {
+    [PunRPC]
     private RaycastHit hit;
     private RaycastHit hit1;
     private RaycastHit hit2;

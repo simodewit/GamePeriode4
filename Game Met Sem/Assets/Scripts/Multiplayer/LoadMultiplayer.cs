@@ -40,6 +40,7 @@ public class LoadMultiplayer : MonoBehaviourPunCallbacks
         yield return new WaitForSeconds(0.1f);
         PhotonNetwork.ConnectUsingSettings();
         PhotonNetwork.JoinLobby();
+        PhotonNetwork.AutomaticallySyncScene = true;
     }
     
 

@@ -293,6 +293,7 @@ MonoBehaviour:
   radius: 0
   blueprintPlacePosition: {x: 0, y: 0, z: 0}
   blueprintRotation: {x: 0, y: 0, z: 0, w: 0}
+  view: {fileID: 0}
 --- !u!1 &2914474897818878390
 GameObject:
   m_ObjectHideFlags: 0
