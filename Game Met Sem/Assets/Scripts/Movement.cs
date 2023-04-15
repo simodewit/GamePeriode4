@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    private Vector3 movement;
+    public Vector3 movement;
     public float moveSpeed;
     public PhotonView view;
     
@@ -20,7 +20,6 @@ public class Movement : MonoBehaviour
             movement.x = Input.GetAxis("Horizontal");
             movement.z = Input.GetAxis("Vertical");
             transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
-            movement.Normalize();
 
             if (movement != Vector3.zero)
             {

@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: -4289649499149324632}
   - component: {fileID: -5920591765913050218}
   - component: {fileID: 9066757042610466141}
-  - component: {fileID: 8942432385727188693}
+  - component: {fileID: -5838976854320261174}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -231,6 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afe47c56d61dcaf4eb9ed905f0967149, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movement: {x: 0, y: 0, z: 0}
   moveSpeed: 5
   view: {fileID: 0}
 --- !u!114 &-4289649499149324632
@@ -289,7 +290,7 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
---- !u!114 &8942432385727188693
+--- !u!114 &-5838976854320261174
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
