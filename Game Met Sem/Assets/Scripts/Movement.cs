@@ -19,6 +19,7 @@ public class Movement : MonoBehaviour
     {
         movement.x = Input.GetAxis("Horizontal");
         movement.z = Input.GetAxis("Vertical");
+      
     }
 
     public void FixedUpdate()

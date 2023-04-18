@@ -8,13 +8,20 @@ using TMPro;
 public class LoadMultiplayer : MonoBehaviourPunCallbacks
 {
     public TMP_Text loading;
+    public bool check;
     private void Update()
     {
-        if (Input.anyKey)
+     
+       if(check == false)
         {
-            StartCoroutine(LoadingThis());
             
+            if (Input.anyKey)
+            {
+                StartCoroutine(LoadingThis());
+                check = true;
+            }
         }
+        
             
     }
 
