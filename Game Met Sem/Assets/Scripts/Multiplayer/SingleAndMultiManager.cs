@@ -16,5 +16,10 @@ public class SingleAndMultiManager : MonoBehaviourPunCallbacks
         SceneManager.LoadScene("RoomMaking");
     }
 
+    public void OnClickBack()
+    {
+        SceneManager.LoadScene("MainMenu");
+
+    }
    
 }
