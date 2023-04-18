@@ -6,12 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class MusicManager : MonoBehaviour
 {
-    public AudioSource mainMenuMusic1;
-    public AudioSource playBuildModeMusic1;
-    public AudioSource playBuildModeMusic2;
-    public GameObject PlayBuildMusic1;
+    public AudioSource MenuMusic1;
+    public AudioSource MenuMusic2;
+    public AudioSource InRound1;
+    public AudioSource InRound2;
+    public AudioSource InRound3;
+    public AudioSource OutRound1;
+    public AudioSource OutRound2;
+    public AudioSource OutRound3;
     public int NumberOfSong;
-    public bool check;
+    public bool check1;
+    public bool check2;
+    public bool inRound;
+    public bool leave;
 
     void Start()
     {
@@ -25,11 +32,11 @@ public class MusicManager : MonoBehaviour
             
             if(NumberOfSong == 1)
             {
-                mainMenuMusic1.enabled = true;
+                MenuMusic1.enabled = true;
             }
             else if(NumberOfSong == 2)
             {
-                //simon music
+                MenuMusic2.enabled = true;
             }
         }
 
@@ -37,33 +44,102 @@ public class MusicManager : MonoBehaviour
         {
             if (NumberOfSong == 1)
             {
-                mainMenuMusic1.enabled = true;
+                MenuMusic1.enabled = true;
             }
             else if (NumberOfSong == 2)
             {
-                //simon music
+                MenuMusic2.enabled = true;
             }
         }
 
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("TestPickUp"))
         {
-            if(check == false)
+            if (check1 == false)
             {
+                MenuMusic1.enabled = false;
+                MenuMusic2.enabled = false;
                 Randomizer(1, 3);
-                check = true;
+                check1 = true;
             }
 
-            mainMenuMusic1.enabled = false;
-
-            if (NumberOfSong == 1)
+            if(NumberOfSong == 1)
             {
-                playBuildModeMusic1.enabled = true;
-
+                MenuMusic1.enabled = true;
             }
-            else if (NumberOfSong == 2)
+            else if(NumberOfSong == 2)
             {
-                playBuildModeMusic2.enabled = true;
+                MenuMusic2.enabled = true;
             }
+        }
+
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MainGameplayScene"))
+        {
+            MenuMusic1.enabled = false;
+            MenuMusic2.enabled = false;
+            
+            if(inRound == false)
+            {
+                InRound1.enabled = false;
+                InRound2.enabled = false;
+                InRound3.enabled = false;
+
+                if (check2 == false)
+                {
+                    Randomizer(1, 4);
+
+                    check2 = true;
+                    check1 = false;
+                }
+
+                if (NumberOfSong == 1)
+                {
+                    OutRound1.enabled = true;
+                }
+                else if (NumberOfSong == 2)
+                {
+                    OutRound2.enabled = true;
+                }
+                else if (NumberOfSong == 3)
+                {
+                    OutRound3.enabled = true;
+                }
+            }
+
+            if(inRound == true)
+            {
+                OutRound1.enabled = false;
+                OutRound2.enabled = false;
+                OutRound2.enabled = false;
+
+                if (NumberOfSong == 1)
+                {
+                    InRound1.enabled = true;
+                }
+                else if(NumberOfSong == 2)
+                {
+                    InRound2.enabled = true;
+                }
+                else if(NumberOfSong == 3)
+                {
+                    InRound3.enabled = true;
+                }
+            }
+        }
+
+        if(leave == true)
+        {
+            Randomizer(1, 3);
+            leave = false;
+
+            OutRound1.enabled = false;
+            OutRound2.enabled = false;
+            OutRound3.enabled = false;
+
+            InRound1.enabled = false;
+            InRound2.enabled = false;
+            InRound3.enabled = false;
+
+            check2 = false;
         }
     }
 
