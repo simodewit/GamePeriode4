@@ -5,26 +5,26 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public Vector3 movement;
+    private Vector3 movement;
+    public Rigidbody rb;
     public float moveSpeed;
-    public PhotonView view;
-    
-    private void Start()
-    {
-        view = GetComponent<PhotonView>();
-    }
+    public float rotateSpeed;
+    private Quaternion look;
+
     public void Update()
     {
-        if (view.IsMine)
-        {
-            movement.x = Input.GetAxis("Horizontal");
-            movement.z = Input.GetAxis("Vertical");
-            transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
+        movement.x = Input.GetAxis("Horizontal");
+        movement.z = Input.GetAxis("Vertical");
+    }
 
-            if (movement != Vector3.zero)
-            {
-                transform.forward = movement;
-            }
+    public void FixedUpdate()
+    {
+        rb.velocity = movement * moveSpeed;
+
+        if(movement != Vector3.zero)
+        {
+            look = Quaternion.LookRotation(movement, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, look, rotateSpeed);
         }
     }
 }
