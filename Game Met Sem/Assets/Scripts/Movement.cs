@@ -10,7 +10,11 @@ public class Movement : MonoBehaviour
     public float moveSpeed;
     public float rotateSpeed;
     private Quaternion look;
-
+    private PhotonView view;
+    private void Start()
+    {
+        view = GetComponent<PhotonView>();
+    }
     public void Update()
     {
         movement.x = Input.GetAxis("Horizontal");
@@ -19,12 +23,17 @@ public class Movement : MonoBehaviour
 
     public void FixedUpdate()
     {
-        rb.velocity = movement * moveSpeed;
 
-        if(movement != Vector3.zero)
+        if (view.IsMine)
         {
-            look = Quaternion.LookRotation(movement, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, look, rotateSpeed);
+            rb.velocity = movement * moveSpeed;
+
+            if (movement != Vector3.zero)
+            {
+                look = Quaternion.LookRotation(movement, Vector3.up);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, look, rotateSpeed);
+            }
         }
+       
     }
 }

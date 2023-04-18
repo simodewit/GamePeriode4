@@ -29,10 +29,7 @@ public class Test : MonoBehaviourPun
     {
         if (view.IsMine)
         {
-
-            photonView.RPC("DoeDingen", RpcTarget.MasterClient);
-
-
+            photonView.RPC("DoeDingen", RpcTarget.All);
         }
 
     }
