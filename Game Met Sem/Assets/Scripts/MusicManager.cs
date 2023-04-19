@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class MusicManager : MonoBehaviour
 {
@@ -14,7 +15,6 @@ public class MusicManager : MonoBehaviour
     public AudioSource outRound1;
     public AudioSource outRound2;
     public AudioSource outRound3;
-
     public AudioSource buttonClick;
 
     public int NumberOfSong;
@@ -30,9 +30,9 @@ public class MusicManager : MonoBehaviour
     }
     void Update()
     {
-        if(SceneManager.GetActiveScene() == SceneManager.GetSceneByName("FirstLoadingScreen"))
+
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("FirstLoadingScreen"))
         {
-            
             if(NumberOfSong == 1)
             {
                 menuMusic1.enabled = true;

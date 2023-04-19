@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
     public GameObject mainMenu;
     public GameObject settings;
-    public GameObject Credits;
+    public GameObject volume;
+    public GameObject credits;
     public GameObject exitgame;
     public GameObject manager;
 
@@ -38,13 +39,13 @@ public class MainMenuManager : MonoBehaviour
     public void OnClickBackCredits()
     {
         mainMenu.SetActive(true);
-        Credits.SetActive(false);
+        credits.SetActive(false);
         manager.GetComponent<MusicManager>().SoundEffect();
     }
     public void OnClickCredits()
     {
         mainMenu.SetActive(false);
-        Credits.SetActive(true);
+        credits.SetActive(true);
         manager.GetComponent<MusicManager>().SoundEffect();
     }
     public void OnClickBackExitGame()
@@ -64,7 +65,4 @@ public class MainMenuManager : MonoBehaviour
         manager.GetComponent<MusicManager>().SoundEffect();
         Application.Quit();
     }
-
-
-
 }
