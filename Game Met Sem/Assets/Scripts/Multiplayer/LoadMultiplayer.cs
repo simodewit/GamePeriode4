@@ -9,6 +9,8 @@ public class LoadMultiplayer : MonoBehaviourPunCallbacks
 {
     public TMP_Text loading;
     public bool check;
+    public MusicManager manager;
+
     private void Update()
     {
      
@@ -19,6 +21,7 @@ public class LoadMultiplayer : MonoBehaviourPunCallbacks
             {
                 StartCoroutine(LoadingThis());
                 check = true;
+                manager.SoundEffect();
             }
         }
         

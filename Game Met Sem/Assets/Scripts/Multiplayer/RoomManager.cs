@@ -9,9 +9,17 @@ public class RoomManager : MonoBehaviourPunCallbacks
 {
     public TMP_InputField roomName;
     public TMP_InputField roomNameJoin;
+    public GameObject manager;
+
+    public void Start()
+    {
+        manager = GameObject.Find("MainMusicManager");
+    }
+
     public void OnClickCreateRoom()
-   {
-        if(roomName.text != "")
+    {
+        manager.GetComponent<MusicManager>().SoundEffect();
+        if (roomName.text != "")
         {
             if (roomName.text.Length <= 10)
             {
@@ -20,10 +28,11 @@ public class RoomManager : MonoBehaviourPunCallbacks
                
         }
         
-   }
+    }
 
     public void OnClickJoinRoom()
     {
+        manager.GetComponent<MusicManager>().SoundEffect();
         if (roomNameJoin.text != "")
         {
             if (roomNameJoin.text.Length <= 10)
@@ -42,7 +51,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public void OnClickBack()
     {
-
+        manager.GetComponent<MusicManager>().SoundEffect();
         SceneManager.LoadScene("PlayOptions");
     }
 }

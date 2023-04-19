@@ -6,14 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class MusicManager : MonoBehaviour
 {
-    public AudioSource MenuMusic1;
-    public AudioSource MenuMusic2;
-    public AudioSource InRound1;
-    public AudioSource InRound2;
-    public AudioSource InRound3;
-    public AudioSource OutRound1;
-    public AudioSource OutRound2;
-    public AudioSource OutRound3;
+    public AudioSource menuMusic1;
+    public AudioSource menuMusic2;
+    public AudioSource inRound1;
+    public AudioSource inRound2;
+    public AudioSource inRound3;
+    public AudioSource outRound1;
+    public AudioSource outRound2;
+    public AudioSource outRound3;
+
+    public AudioSource buttonClick;
+
     public int NumberOfSong;
     public bool check1;
     public bool check2;
@@ -32,11 +35,11 @@ public class MusicManager : MonoBehaviour
             
             if(NumberOfSong == 1)
             {
-                MenuMusic1.enabled = true;
+                menuMusic1.enabled = true;
             }
             else if(NumberOfSong == 2)
             {
-                MenuMusic2.enabled = true;
+                menuMusic2.enabled = true;
             }
         }
 
@@ -44,11 +47,11 @@ public class MusicManager : MonoBehaviour
         {
             if (NumberOfSong == 1)
             {
-                MenuMusic1.enabled = true;
+                menuMusic1.enabled = true;
             }
             else if (NumberOfSong == 2)
             {
-                MenuMusic2.enabled = true;
+                menuMusic2.enabled = true;
             }
         }
 
@@ -56,32 +59,32 @@ public class MusicManager : MonoBehaviour
         {
             if (check1 == false)
             {
-                MenuMusic1.enabled = false;
-                MenuMusic2.enabled = false;
+                menuMusic1.enabled = false;
+                menuMusic2.enabled = false;
                 Randomizer(1, 3);
                 check1 = true;
             }
 
             if(NumberOfSong == 1)
             {
-                MenuMusic1.enabled = true;
+                menuMusic1.enabled = true;
             }
             else if(NumberOfSong == 2)
             {
-                MenuMusic2.enabled = true;
+                menuMusic2.enabled = true;
             }
         }
 
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MainGameplayScene"))
         {
-            MenuMusic1.enabled = false;
-            MenuMusic2.enabled = false;
+            menuMusic1.enabled = false;
+            menuMusic2.enabled = false;
             
             if(inRound == false)
             {
-                InRound1.enabled = false;
-                InRound2.enabled = false;
-                InRound3.enabled = false;
+                inRound1.enabled = false;
+                inRound2.enabled = false;
+                inRound3.enabled = false;
 
                 if (check2 == false)
                 {
@@ -93,35 +96,35 @@ public class MusicManager : MonoBehaviour
 
                 if (NumberOfSong == 1)
                 {
-                    OutRound1.enabled = true;
+                    outRound1.enabled = true;
                 }
                 else if (NumberOfSong == 2)
                 {
-                    OutRound2.enabled = true;
+                    outRound2.enabled = true;
                 }
                 else if (NumberOfSong == 3)
                 {
-                    OutRound3.enabled = true;
+                    outRound3.enabled = true;
                 }
             }
 
             if(inRound == true)
             {
-                OutRound1.enabled = false;
-                OutRound2.enabled = false;
-                OutRound2.enabled = false;
+                outRound1.enabled = false;
+                outRound2.enabled = false;
+                outRound2.enabled = false;
 
                 if (NumberOfSong == 1)
                 {
-                    InRound1.enabled = true;
+                    inRound1.enabled = true;
                 }
                 else if(NumberOfSong == 2)
                 {
-                    InRound2.enabled = true;
+                    inRound2.enabled = true;
                 }
                 else if(NumberOfSong == 3)
                 {
-                    InRound3.enabled = true;
+                    inRound3.enabled = true;
                 }
             }
         }
@@ -131,13 +134,13 @@ public class MusicManager : MonoBehaviour
             Randomizer(1, 3);
             leave = false;
 
-            OutRound1.enabled = false;
-            OutRound2.enabled = false;
-            OutRound3.enabled = false;
+            outRound1.enabled = false;
+            outRound2.enabled = false;
+            outRound3.enabled = false;
 
-            InRound1.enabled = false;
-            InRound2.enabled = false;
-            InRound3.enabled = false;
+            inRound1.enabled = false;
+            inRound2.enabled = false;
+            inRound3.enabled = false;
 
             check2 = false;
         }
@@ -148,4 +151,15 @@ public class MusicManager : MonoBehaviour
         NumberOfSong = Random.Range(min, max);
     }
 
+    public void SoundEffect()
+    {
+        if(buttonClick.enabled == true)
+        {
+            buttonClick.Play();
+        }
+        else
+        {
+            buttonClick.enabled = true;
+        }
+    }
 }
