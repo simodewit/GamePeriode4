@@ -140,8 +140,8 @@ GameObject:
   - component: {fileID: -5920591765913050218}
   - component: {fileID: 9066757042610466141}
   - component: {fileID: 3599516819972188426}
-  - component: {fileID: 8721044413478919321}
   - component: {fileID: 7821420450571267360}
+  - component: {fileID: 7324005461975078687}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -303,23 +303,6 @@ CapsuleCollider:
   m_Height: 1.9999999
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8721044413478919321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2914474897075593096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28604290522427c429d7fe15498aa609, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  empty: {fileID: 6458248126413347855}
-  radius: 0
-  blueprintPlacePosition: {x: 0, y: 0, z: 0}
-  blueprintRotation: {x: 0, y: 0, z: 0, w: 0}
-  view: {fileID: 0}
 --- !u!114 &7821420450571267360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,6 +318,24 @@ MonoBehaviour:
   rb: {fileID: 2914474897075593097}
   moveSpeed: 4
   rotateSpeed: 10
+--- !u!114 &7324005461975078687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2914474897075593096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c1d40a1dbf9558439f7666cbed9cc37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToObject: {x: 0, y: 0.5, z: 0}
+  empty: {fileID: 6458248126413347855}
+  radius: 2
+  blueprintPlacePosition: {x: 0, y: 0, z: 0}
+  blueprintRotation: {x: 0, y: 0, z: 0, w: 0}
+  view: {fileID: 0}
 --- !u!1 &2914474897818878390
 GameObject:
   m_ObjectHideFlags: 0

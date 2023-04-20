@@ -68,6 +68,7 @@ public class MusicManager : MonoBehaviour
         {
             LobbyMusic1.enabled = false;
             LobbyMusic2.enabled = false;
+            LobbyMusic3.enabled = false;
             
             if(inRound == false)
             {
