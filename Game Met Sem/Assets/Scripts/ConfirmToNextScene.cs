@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun.Demo.Cockpit.Forms;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Slider = UnityEngine.UI.Slider;
+using Photon.Pun;
 
 public class ConfirmToNextScene : MonoBehaviour
 {
@@ -18,9 +20,9 @@ public class ConfirmToNextScene : MonoBehaviour
             slider.value -= Time.deltaTime * speed;
         }
 
-        if(slider)
+        if(slider.value >= 1)
         {
-            print("Nextscene");
+            PhotonNetwork.LoadLevel("TestPickUp");
         }
     }
 

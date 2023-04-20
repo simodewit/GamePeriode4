@@ -14,8 +14,7 @@ public class SyncingTest : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        PhotonNetwork.SendRate = 200;
+    {     
         view.RPC("SetPosition", RpcTarget.Others, this.transform.position);
     }
 

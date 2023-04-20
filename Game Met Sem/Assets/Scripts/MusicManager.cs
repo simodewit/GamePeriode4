@@ -54,7 +54,7 @@ public class MusicManager : MonoBehaviour
             }
         }
 
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("TestPickUp"))
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LobbyRoom"))
         {
             if (check1 == false)
             {
@@ -74,7 +74,7 @@ public class MusicManager : MonoBehaviour
             }
         }
 
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MainGameplayScene"))
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("TestPickUp"))
         {
             menuMusic1.enabled = false;
             menuMusic2.enabled = false;
