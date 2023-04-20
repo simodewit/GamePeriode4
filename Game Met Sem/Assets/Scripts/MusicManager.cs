@@ -6,8 +6,10 @@ using UnityEngine.UIElements;
 
 public class MusicManager : MonoBehaviour
 {
-    public AudioSource menuMusic1;
-    public AudioSource menuMusic2;
+    public AudioSource MainSong;
+    public AudioSource LobbyMusic1;
+    public AudioSource LobbyMusic2;
+    public AudioSource LobbyMusic3;
     public AudioSource inRound1;
     public AudioSource inRound2;
     public AudioSource inRound3;
@@ -25,59 +27,47 @@ public class MusicManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this);
-        Randomizer(1, 3);
     }
     void Update()
     {
 
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("FirstLoadingScreen"))
         {
-            if(NumberOfSong == 1)
-            {
-                menuMusic1.enabled = true;
-            }
-            else if(NumberOfSong == 2)
-            {
-                menuMusic2.enabled = true;
-            }
+            MainSong.enabled = true;
         }
 
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MainMenu"))
         {
-            if (NumberOfSong == 1)
-            {
-                menuMusic1.enabled = true;
-            }
-            else if (NumberOfSong == 2)
-            {
-                menuMusic2.enabled = true;
-            }
+            MainSong.enabled = true;
         }
 
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LobbyRoom"))
         {
             if (check1 == false)
             {
-                menuMusic1.enabled = false;
-                menuMusic2.enabled = false;
-                Randomizer(1, 3);
+                MainSong.enabled = false;
+                Randomizer(1, 4);
                 check1 = true;
             }
 
             if(NumberOfSong == 1)
             {
-                menuMusic1.enabled = true;
+                LobbyMusic1.enabled = true;
             }
             else if(NumberOfSong == 2)
             {
-                menuMusic2.enabled = true;
+                LobbyMusic2.enabled = true;
+            }
+            else if(NumberOfSong == 3)
+            {
+                LobbyMusic3.enabled = true;
             }
         }
 
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("TestPickUp"))
         {
-            menuMusic1.enabled = false;
-            menuMusic2.enabled = false;
+            LobbyMusic1.enabled = false;
+            LobbyMusic2.enabled = false;
             
             if(inRound == false)
             {
@@ -130,7 +120,6 @@ public class MusicManager : MonoBehaviour
 
         if(leave == true)
         {
-            Randomizer(1, 3);
             leave = false;
 
             outRound1.enabled = false;
