@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Slider = UnityEngine.UI.Slider;
 using Photon.Pun;
+using UnityEngine.SceneManagement;
 
 public class ConfirmToNextScene : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class ConfirmToNextScene : MonoBehaviour
 
         if(slider.value >= 1)
         {
-            PhotonNetwork.LoadLevel("TestPickUp");
+            SceneManager.LoadScene("TestPickUp");
         }
     }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 
-public class SyncingTest : MonoBehaviour
+public class SyncingTest : MonoBehaviourPunCallbacks
 {
     public PhotonView view;
     
