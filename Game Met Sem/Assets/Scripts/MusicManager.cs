@@ -30,7 +30,6 @@ public class MusicManager : MonoBehaviour
     }
     void Update()
     {
-
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("FirstLoadingScreen"))
         {
             MainSong.enabled = true;
