@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class managerrr : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
         PhotonNetwork.Instantiate("Player", transform.position, Quaternion.identity);

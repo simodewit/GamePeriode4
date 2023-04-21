@@ -19,12 +19,10 @@ public class Movement : MonoBehaviour
     {
         movement.x = Input.GetAxis("Horizontal");
         movement.z = Input.GetAxis("Vertical");
-      
     }
 
     public void FixedUpdate()
     {
-
         if (view.IsMine)
         {
             rb.velocity = movement * moveSpeed;
@@ -35,6 +33,5 @@ public class Movement : MonoBehaviour
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, look, rotateSpeed);
             }
         }
-       
     }
 }

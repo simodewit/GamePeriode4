@@ -31,9 +31,10 @@ public class Test : MonoBehaviourPun
         {
             photonView.RPC("DoeDingen", RpcTarget.All);
         }
-
     }
+
     [PunRPC]
+
     public void DoeDingen()
     {
         check = true;

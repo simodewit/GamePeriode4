@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
-    [System.Serializable]
-    public class Wave
-    {
-        public GameObject objectToSpawn; 
-        public int count;   
-        public float timeBetweenSpawns;    
-    }
-
     public Wave[] waves;
     private bool buildingMode = true;
     private int waveIndex;
     private bool isSpawning;
     private float timeUntilNextSpawn;
     public Transform spawnpoint;
+
+    [System.Serializable]
+
+    public class Wave
+    {
+        public GameObject objectToSpawn; 
+        public int count;   
+        public float timeBetweenSpawns;    
+    }
 
     private void Start()
     {
@@ -40,7 +41,6 @@ public class WaveSpawner : MonoBehaviour
             {
                 timeUntilNextSpawn -= Time.deltaTime;
             }
-
         }
     }
 
@@ -58,7 +58,4 @@ public class WaveSpawner : MonoBehaviour
     {
         //waves[waveIndex].objectToSpawn = Instantiate(waves[waveIndex].objectToSpawn.transform.position, spawnpoint.position, Quaternion.identity);
     }
-
-
-
 }

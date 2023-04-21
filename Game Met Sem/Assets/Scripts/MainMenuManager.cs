@@ -30,36 +30,42 @@ public class MainMenuManager : MonoBehaviour
         settings.SetActive(false);
         manager.GetComponent<MusicManager>().SoundEffect();
     }
+
     public void OnClickSettings()
     {
         mainMenu.SetActive(false);
         settings.SetActive(true);
         manager.GetComponent<MusicManager>().SoundEffect();
     }
+
     public void OnClickBackCredits()
     {
         mainMenu.SetActive(true);
         credits.SetActive(false);
         manager.GetComponent<MusicManager>().SoundEffect();
     }
+
     public void OnClickCredits()
     {
         mainMenu.SetActive(false);
         credits.SetActive(true);
         manager.GetComponent<MusicManager>().SoundEffect();
     }
+
     public void OnClickBackExitGame()
     {
         mainMenu.SetActive(true);
         exitgame.SetActive(false);
         manager.GetComponent<MusicManager>().SoundEffect();
     }
+
     public void OnClickNoExitGame()
     {
         mainMenu.SetActive(false);
         exitgame.SetActive(true);
         manager.GetComponent<MusicManager>().SoundEffect();
     }
+
     public void OnClickYesExitGame()
     {
         manager.GetComponent<MusicManager>().SoundEffect();
