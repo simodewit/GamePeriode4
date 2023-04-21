@@ -12,15 +12,15 @@ public class SyncingTest : MonoBehaviour
         view = GetComponent<PhotonView>();
     }
 
-    // Update is called once per frame
+   
     void Update()
     {     
-        view.RPC("SetPosition", RpcTarget.Others, this.transform.position);
+        view.RPC("SetPosition", RpcTarget.All);
     }
 
     [PunRPC]
-    public void SetPosition(Vector3 position)
+    public void SetPosition()
     {
-        this.transform.position = position;
+        transform.position = transform.position;
     }
 }
