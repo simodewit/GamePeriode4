@@ -1116,12 +1116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21b234513582e7c449cb0db93d5b27df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  truckPrefab: {fileID: 193339206761162981, guid: 11f1dd01b5e63f64bbe23067bb956275,
-    type: 3}
-  SpawnPoint: {fileID: 1943913963}
-  timeBetweenWaves: 0
-  waveIndex: 0
-  ready: 0
+  waves: []
+  spawnpoint: {fileID: 0}
 --- !u!4 &1943913963
 Transform:
   m_ObjectHideFlags: 0

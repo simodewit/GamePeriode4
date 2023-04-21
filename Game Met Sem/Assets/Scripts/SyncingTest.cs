@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 
-public class SyncingTest : MonoBehaviourPunCallbacks
+public class SyncingTest : MonoBehaviour, IPunObservable
 {
     public PhotonView view;
-    
+    public Vector3 trackPos;
     void Start()
     {
         view = GetComponent<PhotonView>();
@@ -14,13 +14,27 @@ public class SyncingTest : MonoBehaviourPunCallbacks
 
    
     void Update()
-    {     
-        view.RPC("SetPosition", RpcTarget.All);
+    {
+        if (!view.IsMine)
+        {
+            transform.position = trackPos;
+        }
     }
 
-    [PunRPC]
-    public void SetPosition()
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        transform.position = transform.position;
+
+        if (stream.IsWriting)
+        {
+            stream.SendNext(transform.position);
+        }
+
+        if (stream.IsReading)
+        {
+            trackPos = (Vector3)stream.ReceiveNext();
+        }
+
+
+
     }
 }
