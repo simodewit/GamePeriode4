@@ -23,6 +23,13 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
     public TMP_InputField roomNameJoin;
     private bool check;
     private bool check2;
+    private int randomNumber;
+    public string randomName;
+
+    public void Start()
+    {
+        DontDestroyOnLoad(this);
+    }
 
     public void Update()
     {
@@ -49,7 +56,11 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
         SoundEffectTrigger();
         playOptions.SetActive(false);
         loadingScreen.SetActive(true);
-        //joins game
+
+        randomNumber = Random.Range(100000, 999999);
+        randomName = randomNumber.ToString();
+
+        PhotonNetwork.CreateRoom(randomName);
     }
 
     public void OnClickMultiplayer()
