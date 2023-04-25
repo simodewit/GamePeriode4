@@ -29,14 +29,6 @@ public class PickupScript : MonoBehaviourPun
     public void Update()
     {
         if (view.IsMine)
-        {
-            view.RPC("PickUpFunction", RpcTarget.All);
-        }
-    }
-
-    public void PickUpFunction()
-    {
-        if (view.IsMine)
         { 
             check = true;
             if (Input.GetButtonDown("Fire1"))

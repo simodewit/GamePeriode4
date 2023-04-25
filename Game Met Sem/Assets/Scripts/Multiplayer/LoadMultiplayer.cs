@@ -14,9 +14,8 @@ public class LoadMultiplayer : MonoBehaviourPunCallbacks
     private void Update()
     {
      
-       if(check == false)
-        {
-            
+        if(check == false)
+        {  
             if (Input.anyKey)
             {
                 StartCoroutine(LoadingThis());

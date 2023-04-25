@@ -43,6 +43,8 @@ MonoBehaviour:
   - DoeDingen
   - SetPositionn
   - SetPosition
+  - posChangeRPC
+  - SyncPos
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
