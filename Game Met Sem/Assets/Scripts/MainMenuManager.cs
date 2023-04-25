@@ -8,9 +8,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MainMenuManager : MonoBehaviour
+public class MainMenuManager : MonoBehaviourPunCallbacks
 {
-    public GameObject loadingAtStart;
+    public GameObject loadingScreen;
     public GameObject mainMenu;
     public GameObject settings;
     public GameObject credits;
@@ -19,7 +19,10 @@ public class MainMenuManager : MonoBehaviour
     public GameObject createAndJoin;
     public AudioSource soundEffect;
     public TMP_Text loading;
+    public TMP_InputField roomName;
+    public TMP_InputField roomNameJoin;
     private bool check;
+    private bool check2;
 
     public void Update()
     {
@@ -45,6 +48,7 @@ public class MainMenuManager : MonoBehaviour
     {
         SoundEffectTrigger();
         playOptions.SetActive(false);
+        loadingScreen.SetActive(true);
         //joins game
     }
 
@@ -59,14 +63,27 @@ public class MainMenuManager : MonoBehaviour
     {
         SoundEffectTrigger();
         createAndJoin.SetActive(false);
-        //creates lobby
+        loadingScreen.SetActive(true);
+
+        if (roomName.text != "")
+        {
+            if (roomName.text.Length <= 10)
+            {
+                PhotonNetwork.CreateRoom(roomName.text);
+            }
+        }
     }
 
     public void OnClickJoin()
     {
         SoundEffectTrigger();
         createAndJoin.SetActive(false);
-        //joins lobby
+        loadingScreen.SetActive(true);
+
+        if (roomNameJoin.text != "")
+        {
+            PhotonNetwork.JoinRoom(roomNameJoin.text);
+        }
     }
 
     public void OnClickSettings()
@@ -159,10 +176,23 @@ public class MainMenuManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         loading.text = "Loading...";
         yield return new WaitForSeconds(0.1f);
-        PhotonNetwork.ConnectUsingSettings();
-        PhotonNetwork.JoinLobby();
-        PhotonNetwork.AutomaticallySyncScene = true;
-        loadingAtStart.SetActive(false);
-        mainMenu.SetActive(true);
+
+        if(check2 == false)
+        {
+            PhotonNetwork.ConnectUsingSettings();
+            PhotonNetwork.JoinLobby();
+            PhotonNetwork.AutomaticallySyncScene = true;
+            loadingScreen.SetActive(false);
+            mainMenu.SetActive(true);
+        }
+        else
+        {
+            loadingScreen.SetActive(false);
+        }
+    }
+
+    public override void OnJoinedRoom()
+    {
+        PhotonNetwork.LoadLevel("LobbyRoom");
     }
 }

@@ -16,7 +16,6 @@ public class MusicManager : MonoBehaviour
     public AudioSource outRound1;
     public AudioSource outRound2;
     public AudioSource outRound3;
-    public AudioSource buttonClick;
 
     public int NumberOfSong;
     public bool check1;
@@ -28,12 +27,9 @@ public class MusicManager : MonoBehaviour
     {
         DontDestroyOnLoad(this);
     }
+
     void Update()
     {
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("FirstLoadingScreen"))
-        {
-            MainSong.enabled = true;
-        }
 
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MainMenu"))
         {
@@ -137,17 +133,5 @@ public class MusicManager : MonoBehaviour
     public void Randomizer(int min, int max)
     {
         NumberOfSong = Random.Range(min, max);
-    }
-
-    public void SoundEffect()
-    {
-        if(buttonClick.enabled == true)
-        {
-            buttonClick.Play();
-        }
-        else
-        {
-            buttonClick.enabled = true;
-        }
     }
 }
