@@ -21,6 +21,7 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
     public TMP_Text loading;
     public TMP_InputField roomName;
     public TMP_InputField roomNameJoin;
+    public Slider volumeSlider;
     private bool check;
     private bool check2;
     private int randomNumber;
@@ -42,6 +43,8 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
                 StartCoroutine(LoadingThis());
             }
         }
+
+        OptionsManager();
     }
 
     public void OnClickPlay()
@@ -205,5 +208,10 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         PhotonNetwork.LoadLevel("LobbyRoom");
+    }
+
+    public void OptionsManager()
+    {
+        AudioListener.volume = volumeSlider.value;
     }
 }
