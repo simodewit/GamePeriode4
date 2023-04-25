@@ -34,6 +34,7 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
     private bool check2;
     private bool check3;
     private bool check4;
+    private bool check5;
     private int randomNumber;
     public string randomName;
 
@@ -59,11 +60,28 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
         {
             if(Input.GetKeyDown(KeyCode.Escape))
             {
-                OnClickEscape();
+                if(check5 == false)
+                {
+                    OnClickEscape();
+                    check5 = true;
+                }
+                else if(check5 == true)
+                {
+                    if(escapeMenu == true)
+                    {
+                        escapeMenu.SetActive(false);
+                        check5 = false;
+                    }
+                }
             }
         }
 
         OptionsManager();
+
+        if(GameObject.FindGameObjectsWithTag("MenuManager").Length > 1)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
 

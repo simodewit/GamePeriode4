@@ -8,6 +8,9 @@ TagManager:
   - Grid
   - Pickup
   - BluePrint
+  - Bullet
+  - Truck
+  - MenuManager
   layers:
   - Default
   - TransparentFX
