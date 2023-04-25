@@ -33,7 +33,17 @@ public class MusicManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MainMenu"))
         {
+            check2 = false;
+
             MainSong.enabled = true;
+
+            outRound1.enabled = false;
+            outRound2.enabled = false;
+            outRound3.enabled = false;
+
+            inRound1.enabled = false;
+            inRound2.enabled = false;
+            inRound3.enabled = false;
         }
 
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LobbyRoom"))
@@ -61,6 +71,8 @@ public class MusicManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("TestPickUp"))
         {
+            check1 = false;
+
             LobbyMusic1.enabled = false;
             LobbyMusic2.enabled = false;
             LobbyMusic3.enabled = false;
@@ -112,21 +124,6 @@ public class MusicManager : MonoBehaviour
                     inRound3.enabled = true;
                 }
             }
-        }
-
-        if(leave == true)
-        {
-            leave = false;
-
-            outRound1.enabled = false;
-            outRound2.enabled = false;
-            outRound3.enabled = false;
-
-            inRound1.enabled = false;
-            inRound2.enabled = false;
-            inRound3.enabled = false;
-
-            check2 = false;
         }
     }
 
