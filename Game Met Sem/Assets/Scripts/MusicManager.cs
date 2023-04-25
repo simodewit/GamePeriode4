@@ -17,9 +17,9 @@ public class MusicManager : MonoBehaviour
     public AudioSource outRound2;
     public AudioSource outRound3;
 
-    public int NumberOfSong;
-    public bool check1;
-    public bool check2;
+    private int NumberOfSong;
+    private bool check1;
+    private bool check2;
     public bool inRound;
     public bool leave;
 
