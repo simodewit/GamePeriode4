@@ -13,7 +13,6 @@ public class LoadMultiplayer : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-     
         if(check == false)
         {  
             if (Input.anyKey)
@@ -22,9 +21,7 @@ public class LoadMultiplayer : MonoBehaviourPunCallbacks
                 check = true;
                 manager.SoundEffect();
             }
-        }
-        
-            
+        }   
     }
 
     public override void OnConnectedToMaster()
@@ -51,7 +48,4 @@ public class LoadMultiplayer : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinLobby();
         PhotonNetwork.AutomaticallySyncScene = true;
     }
-    
-
- 
 }
