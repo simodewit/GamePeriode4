@@ -44,6 +44,10 @@ public class MusicManager : MonoBehaviour
             inRound1.enabled = false;
             inRound2.enabled = false;
             inRound3.enabled = false;
+
+            LobbyMusic1.enabled = false;
+            LobbyMusic2.enabled = false;
+            LobbyMusic3.enabled = false;
         }
 
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LobbyRoom"))
