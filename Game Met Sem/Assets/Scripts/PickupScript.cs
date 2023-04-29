@@ -12,7 +12,6 @@ public class PickupScript : MonoBehaviourPun
     public GameObject empty;
     private bool inHands;
     private bool isPickup;
-    private bool isBlueprint;
     private RaycastHit hitNode;
     private RaycastHit hitPickup;
 
