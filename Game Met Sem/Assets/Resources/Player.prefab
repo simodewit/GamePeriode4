@@ -330,12 +330,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c1d40a1dbf9558439f7666cbed9cc37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToObject: {x: 0, y: 0.5, z: 0}
-  empty: {fileID: 6458248126413347855}
-  radius: 2
-  blueprintPlacePosition: {x: 0, y: 0, z: 0}
-  blueprintRotation: {x: 0, y: 0, z: 0, w: 0}
   view: {fileID: 0}
+  empty: {fileID: 6458248126413347855}
 --- !u!1 &2914474897818878390
 GameObject:
   m_ObjectHideFlags: 0

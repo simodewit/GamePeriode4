@@ -251,7 +251,6 @@ GameObject:
   - component: {fileID: 187303109}
   - component: {fileID: 187303108}
   - component: {fileID: 187303113}
-  - component: {fileID: 187303114}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Pickup
@@ -359,18 +358,6 @@ MonoBehaviour:
   sceneViewId: 1
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &187303114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 187303107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c95a3f5e49911d14380b230506ca3e09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &326004736
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,7 +489,6 @@ GameObject:
   - component: {fileID: 415600078}
   - component: {fileID: 415600077}
   - component: {fileID: 415600082}
-  - component: {fileID: 415600083}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Pickup
@@ -610,18 +596,6 @@ MonoBehaviour:
   sceneViewId: 7
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &415600083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 415600076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c95a3f5e49911d14380b230506ca3e09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &453546360
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,7 +676,6 @@ GameObject:
   - component: {fileID: 798253313}
   - component: {fileID: 798253312}
   - component: {fileID: 798253317}
-  - component: {fileID: 798253318}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Pickup
@@ -810,18 +783,6 @@ MonoBehaviour:
   sceneViewId: 8
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &798253318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 798253311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c95a3f5e49911d14380b230506ca3e09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1327131204
 GameObject:
   m_ObjectHideFlags: 0
@@ -879,7 +840,6 @@ GameObject:
   - component: {fileID: 1432174267}
   - component: {fileID: 1432174266}
   - component: {fileID: 1432174271}
-  - component: {fileID: 1432174272}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Pickup
@@ -987,18 +947,6 @@ MonoBehaviour:
   sceneViewId: 6
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &1432174272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1432174264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c95a3f5e49911d14380b230506ca3e09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1651326485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1114,6 +1062,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves: []
   spawnpoint: {fileID: 0}
+  BuildModeButton: {fileID: 0}
 --- !u!4 &1943913963
 Transform:
   m_ObjectHideFlags: 0
