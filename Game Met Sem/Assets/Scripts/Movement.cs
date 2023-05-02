@@ -14,6 +14,7 @@ public class Movement : MonoBehaviour
     private Vector3 gravity;
     public float gravitySpeed;
     public Vector3 lookRotation;
+    private bool onGround;
 
     private void Start()
     {
@@ -24,21 +25,41 @@ public class Movement : MonoBehaviour
         movement.x = Input.GetAxis("Horizontal");
         movement.z = Input.GetAxis("Vertical");
 
-        lookRotation = movement;
+        lookRotation.x = movement.x;
+        lookRotation.z = movement.z;
     }
 
     public void FixedUpdate()
     {
-        if (view.IsMine)
+        if (!view.IsMine)
+            return;
 
-        gravity = Physics.gravity.normalized * gravitySpeed;
-        movement += gravity;
+        if (!onGround)
+        {
+            gravity = Physics.gravity.normalized * gravitySpeed;
+            movement += gravity;
+        }
+        else
+        {
+            movement.y = 0;
+        }
+
         rb.velocity = movement * moveSpeed;
 
-        if (movement != Vector3.zero)
+        if (lookRotation != Vector3.zero)
         {
             look = Quaternion.LookRotation(lookRotation, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, look, rotateSpeed);
         }
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        onGround = true;
+    }
+
+    public void OnCollisionExit(Collision collision)
+    {
+        onGround = false;
     }
 }

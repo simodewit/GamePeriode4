@@ -41,6 +41,7 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
     public void Start()
     {
         DontDestroyOnLoad(this);
+        check2 = false;
     }
 
     public void Update()
