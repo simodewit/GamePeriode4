@@ -303,9 +303,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2914474897075593097}
   moveSpeed: 4
-  rotateSpeed: 10
+  rotateSpeed: 20
   gravitySpeed: 0.01
   lookRotation: {x: 0, y: 0, z: 0}
+  onGround: 0
 --- !u!114 &7324005461975078687
 MonoBehaviour:
   m_ObjectHideFlags: 0
