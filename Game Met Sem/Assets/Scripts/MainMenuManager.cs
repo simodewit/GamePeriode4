@@ -103,9 +103,12 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
         SoundEffectTrigger();
         playOptions.SetActive(false);
         loadingScreen.SetActive(true);
+        check3 = false;
 
         randomNumber = Random.Range(100000, 999999);
         randomName = randomNumber.ToString();
+
+        StartCoroutine(LoadingThis());
 
         PhotonNetwork.CreateRoom(randomName);
     }

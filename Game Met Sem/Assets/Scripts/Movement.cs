@@ -14,7 +14,7 @@ public class Movement : MonoBehaviour
     private Vector3 gravity;
     public float gravitySpeed;
     public Vector3 lookRotation;
-    private bool onGround;
+    public bool onGround;
 
     private void Start()
     {
@@ -53,7 +53,7 @@ public class Movement : MonoBehaviour
         }
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnCollisionStay(Collision collision)
     {
         onGround = true;
     }
