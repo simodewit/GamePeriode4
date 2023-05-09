@@ -6,8 +6,11 @@ using UnityEngine;
 
 public class LobbyManager : MonoBehaviour
 {
+    public GameObject mainMenuManager;
     private void Start()
     {
         PhotonNetwork.Instantiate("Player", transform.position, Quaternion.identity);
+        mainMenuManager = GameObject.Find("MaineMenuManager");
     }
+
 }

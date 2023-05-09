@@ -77,7 +77,7 @@ public class WaveSpawner : MonoBehaviour
     public void Update()
     {
 
-        if (finishedSpawning == true) //&& GameObject.FindGameObjectsWithTag("Truck").Length == 0)
+        if (finishedSpawning == true && GameObject.FindGameObjectsWithTag("Truck").Length == 0)
         {
             finishedSpawning = false;
             if(waveIndex + 1 < waves.Length)

@@ -10,7 +10,7 @@ public class TruckAI : MonoBehaviour
     public GameObject[] questObjects;
     public float speed;
     public float distanceToCheckPoint;
-    private int questIndex;
+    public int questIndex;
 
     private void Start()
     {
@@ -28,48 +28,65 @@ public class TruckAI : MonoBehaviour
         if (Vector3.Distance(transform.position, checkPoints[checkPointIndex].transform.position) <= distanceToCheckPoint)
         {
             checkPointIndex++;
-            RandomizerQuest();
+            
+            if(checkPointIndex >= questObjects.Length + 1)
+            {
+                Destroy(this.gameObject);
+            }
+
+            if (checkPoints[1])
+            {
+                speed = 0f;
+                RandomizerQuest();
+            }
+           
         }            
     }
     public void RandomizerQuest()
     {
-        questIndex = Random.Range(0, 4);
+        questIndex = Random.Range(1, 4);
         
         if(questIndex == 1)
         {
-            StartQuest1();
+            StartCoroutine(StartQuest1());
         }
         if (questIndex == 2)
         {
-            StartQuest2();
+            StartCoroutine(StartQuest2());
         }
         if (questIndex == 3)
         {
-            StartQuest3();
+            StartCoroutine(StartQuest3());
         }
     }
 
-    public void StartQuest1()
+    
+    IEnumerator StartQuest1()
     {
+        Debug.Log("Quest 1 started");
+        yield return new WaitForSeconds(2);
         EndQuest();
-        Debug.Log("Quest 1 started");        
+               
     }
-
-    public void StartQuest2()
+    IEnumerator StartQuest2()
     {
-        EndQuest();
         Debug.Log("Quest 2 started");
-    }
-
-    public void StartQuest3()
-    {
+        yield return new WaitForSeconds(2);
         EndQuest();
+        
+    }
+    IEnumerator StartQuest3()
+    {
         Debug.Log("Quest 3 started");
+        yield return new WaitForSeconds(2);
+        EndQuest();
+        
     }
 
     public void EndQuest()
     {
         speed = 3f;
+        checkPointIndex++;
     }
 
 }
