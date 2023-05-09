@@ -31,6 +31,10 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
 
     //options
     public Slider volumeSlider;
+    public TMP_Dropdown resolutions;
+    public Toggle fullscreen;
+    public int width;
+    public int height;
 
     //random name generator
     private int randomNumber;
@@ -179,6 +183,11 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
     public void OptionsManager()
     {
         AudioListener.volume = volumeSlider.value;
+    }
+
+    public void OnClickApplyButton()
+    {
+        Screen.SetResolution(width, height, fullscreen.isOn);
     }
 
     #endregion
