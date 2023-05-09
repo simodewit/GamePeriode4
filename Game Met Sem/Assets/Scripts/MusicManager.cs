@@ -6,10 +6,13 @@ using UnityEngine.UIElements;
 
 public class MusicManager : MonoBehaviour
 {
-    public AudioSource MainSong;
-    public AudioSource LobbyMusic1;
-    public AudioSource LobbyMusic2;
-    public AudioSource LobbyMusic3;
+    #region variables
+
+    //all songs
+    public AudioSource mainSong;
+    public AudioSource lobbyMusic1;
+    public AudioSource lobbyMusic2;
+    public AudioSource lobbyMusic3;
     public AudioSource inRound1;
     public AudioSource inRound2;
     public AudioSource inRound3;
@@ -17,122 +20,127 @@ public class MusicManager : MonoBehaviour
     public AudioSource outRound2;
     public AudioSource outRound3;
 
-    private int NumberOfSong;
-    private bool check1;
-    private bool check2;
+    //checks
+    private int numberOfSong;
+    private int checksToTriggerOnce;
     public bool inRound;
-    public bool leave;
+    private bool canRandomize;
 
-    void Start()
+    #endregion
+
+    #region songplayer
+
+    public void Start()
     {
         DontDestroyOnLoad(this);
+        mainSong.enabled = true;
+        checksToTriggerOnce = 0;
     }
 
-    void Update()
+    public void Update()
     {
-
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MainMenu"))
         {
-            check2 = false;
+            if (checksToTriggerOnce == 1)
+            {
+                ResetAllSongs();
+                mainSong.enabled = true;
+            }
 
-            MainSong.enabled = true;
-
-            outRound1.enabled = false;
-            outRound2.enabled = false;
-            outRound3.enabled = false;
-
-            inRound1.enabled = false;
-            inRound2.enabled = false;
-            inRound3.enabled = false;
-
-            LobbyMusic1.enabled = false;
-            LobbyMusic2.enabled = false;
-            LobbyMusic3.enabled = false;
+            checksToTriggerOnce = 2;
         }
 
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LobbyRoom"))
         {
-            if (check1 == false)
-            {
-                MainSong.enabled = false;
-                Randomizer(1, 4);
-                check1 = true;
-            }
+            if (checksToTriggerOnce != 2)
+                return;
 
-            if(NumberOfSong == 1)
-            {
-                LobbyMusic1.enabled = true;
-            }
-            else if(NumberOfSong == 2)
-            {
-                LobbyMusic2.enabled = true;
-            }
-            else if(NumberOfSong == 3)
-            {
-                LobbyMusic3.enabled = true;
-            }
+            checksToTriggerOnce = 3;
+            ResetAllSongs();
+            Randomizer(1, 4);
+
+            if (numberOfSong == 1)
+                lobbyMusic1.enabled = true;
+
+            if (numberOfSong == 2)
+                lobbyMusic2.enabled = true;
+
+            if (numberOfSong == 3)
+                lobbyMusic3.enabled = true;
         }
 
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("TestPickUp"))
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("TestPickup"))
         {
-            check1 = false;
-
-            LobbyMusic1.enabled = false;
-            LobbyMusic2.enabled = false;
-            LobbyMusic3.enabled = false;
-            
-            if(inRound == false)
+            if (checksToTriggerOnce == 3)
             {
-                inRound1.enabled = false;
-                inRound2.enabled = false;
-                inRound3.enabled = false;
-
-                if (check2 == false)
-                {
-                    Randomizer(1, 4);
-
-                    check2 = true;
-                    check1 = false;
-                }
-
-                if (NumberOfSong == 1)
-                {
-                    outRound1.enabled = true;
-                }
-                else if (NumberOfSong == 2)
-                {
-                    outRound2.enabled = true;
-                }
-                else if (NumberOfSong == 3)
-                {
-                    outRound3.enabled = true;
-                }
+                checksToTriggerOnce = 1;
             }
 
-            if(inRound == true)
+            if (!inRound)
             {
-                outRound1.enabled = false;
-                outRound2.enabled = false;
-                outRound2.enabled = false;
+                if (canRandomize)
+                {
+                    Randomizer(1, 4);
+                    ResetAllSongs();
+                    canRandomize = false;
+                }
 
-                if (NumberOfSong == 1)
-                {
+                if (numberOfSong == 1)
                     inRound1.enabled = true;
-                }
-                else if(NumberOfSong == 2)
-                {
+
+                if (numberOfSong == 2)
                     inRound2.enabled = true;
-                }
-                else if(NumberOfSong == 3)
-                {
+
+                if (numberOfSong == 3)
                     inRound3.enabled = true;
+            }
+            if (inRound)
+            {
+                if (!canRandomize)
+                {
+                    Randomizer(1, 4);
+                    ResetAllSongs();
+                    canRandomize = true;
                 }
+
+                if (numberOfSong == 1)
+                    outRound1.enabled = true;
+
+                if (numberOfSong == 2)
+                    outRound2.enabled = true;
+
+                if (numberOfSong == 3)
+                    outRound3.enabled = true;
             }
         }
     }
+
+    #endregion
+
+    #region randomizer
 
     public void Randomizer(int min, int max)
     {
-        NumberOfSong = Random.Range(min, max);
+        numberOfSong = Random.Range(min, max);
     }
+
+    #endregion
+
+    #region reset
+
+    public void ResetAllSongs()
+    {
+        mainSong.enabled = false;
+        lobbyMusic1.enabled = false;
+        lobbyMusic2.enabled = false;
+        lobbyMusic3.enabled = false;
+        inRound1.enabled = false;
+        inRound2.enabled = false;
+        inRound3.enabled = false;
+        outRound1.enabled = false;
+        outRound2.enabled = false;
+        outRound3.enabled = false;
+    }
+
+    #endregion
 }

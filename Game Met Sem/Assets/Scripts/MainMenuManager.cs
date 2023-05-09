@@ -22,7 +22,7 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
     public GameObject createAndJoin;
 
     //soundeffects
-    public AudioSource soundEffect;
+    public AudioSource ButtonClickSound;
 
     //loadingScreen
     public TMP_Text loading;
@@ -38,18 +38,27 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
 
     #endregion
 
+    #region update
+
+    public void Update()
+    {
+        OptionsManager();
+    }
+
+    #endregion
+
     #region button functions
 
     public void OnClickPlay()
     {
-        SoundEffectTrigger();
+        ButtonClickSound.Play();
         mainMenu.SetActive(false);
         playOptions.SetActive(true);
     }
 
     public void OnClickSinglePlayer()
     {
-        SoundEffectTrigger();
+        ButtonClickSound.Play();
         playOptions.SetActive(false);
         loadingScreen.SetActive(true);
 
@@ -63,14 +72,14 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
 
     public void OnClickMultiplayer()
     {
-        SoundEffectTrigger();
+        ButtonClickSound.Play();
         playOptions.SetActive(false);
         createAndJoin.SetActive(true);
     }
 
     public void OnClickCreate()
     {
-        SoundEffectTrigger();
+        ButtonClickSound.Play();
 
         if (roomName.text != "")
             return;
@@ -85,7 +94,7 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
 
     public void OnClickJoin()
     {
-        SoundEffectTrigger();
+        ButtonClickSound.Play();
 
         if (roomNameJoin.text != "")
             return;
@@ -97,41 +106,41 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
 
     public void OnClickSettings()
     {
-        SoundEffectTrigger();
+        ButtonClickSound.Play();
         mainMenu.SetActive(false);
         settings.SetActive(true);
     }
 
     public void OnClickCredits()
     {
-        SoundEffectTrigger();
+        ButtonClickSound.Play();
         mainMenu.SetActive(false);
         credits.SetActive(true);
     }
 
     public void OnClickExitGame()
     {
-        SoundEffectTrigger();
+        ButtonClickSound.Play();
         mainMenu.SetActive(false);
         exitgame.SetActive(true);
     }
 
     public void OnClickNoExitGame()
     {
-        SoundEffectTrigger();
+        ButtonClickSound.Play();
         exitgame.SetActive(false);
         mainMenu.SetActive(true);
     }
 
     public void OnClickYesExitGame()
     {
-        SoundEffectTrigger();
+        ButtonClickSound.Play();
         Application.Quit();
     }
 
     public void OnClickBackSettings()
     {
-        SoundEffectTrigger();
+        ButtonClickSound.Play();
         settings.SetActive(false);
         mainMenu.SetActive(true);
     }
@@ -139,21 +148,21 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
 
     public void OnClickBackCredits()
     {
-        SoundEffectTrigger();
+        ButtonClickSound.Play();
         credits.SetActive(false);
         mainMenu.SetActive(true);
     }
 
     public void OnClickBackPlayOptions()
     {
-        SoundEffectTrigger();
+        ButtonClickSound.Play();
         playOptions.SetActive(false);
         mainMenu.SetActive(true);
     }
 
     public void OnClickBackCreateAndJoin()
     {
-        SoundEffectTrigger();
+        ButtonClickSound.Play();
         createAndJoin.SetActive(false);
         playOptions.SetActive(true);
     }
@@ -163,25 +172,13 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
         PhotonNetwork.LoadLevel("LobbyRoom");
     }
 
+    #endregion
+
+    #region options
+
     public void OptionsManager()
     {
         AudioListener.volume = volumeSlider.value;
-    }
-
-    #endregion
-
-    #region extra effects
-
-    public void SoundEffectTrigger()
-    {
-        if(soundEffect.enabled == false)
-        {
-            soundEffect.enabled = true;
-        }
-        else
-        {
-            soundEffect.Play();
-        }
     }
 
     #endregion
