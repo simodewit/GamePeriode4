@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class GridMaker : MonoBehaviour
 {
+    #region variables
+
     public int width;
     public int length;
     public GameObject node;
@@ -16,6 +18,10 @@ public class GridMaker : MonoBehaviour
     public GameObject sideAxis;
     public Quaternion camRotation;
     public float ajustHeight;
+
+    #endregion
+
+    #region Makes grid
 
     private void Start()
     {
@@ -45,4 +51,6 @@ public class GridMaker : MonoBehaviour
         sideAxis.transform.position += halfWidth;
         sideAxis.transform.rotation = camRotation;
     }
+
+    #endregion
 }

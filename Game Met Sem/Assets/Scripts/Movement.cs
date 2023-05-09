@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    #region variables
+
     private Vector3 movement;
     public Rigidbody rb;
     public float moveSpeed;
@@ -15,6 +17,10 @@ public class Movement : MonoBehaviour
     public float gravitySpeed;
     public Vector3 lookRotation;
     public bool onGround;
+
+    #endregion
+
+    #region main code
 
     private void Start()
     {
@@ -53,6 +59,10 @@ public class Movement : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region collisioncheck
+
     public void OnCollisionStay(Collision collision)
     {
         onGround = true;
@@ -62,4 +72,6 @@ public class Movement : MonoBehaviour
     {
         onGround = false;
     }
+
+    #endregion
 }

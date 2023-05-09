@@ -8,12 +8,18 @@ using UnityEngine;
 
 public class PickupScript : MonoBehaviourPun
 {
+    #region variables
+
     public PhotonView view;
     public GameObject empty;
     private bool inHands;
     private bool isPickup;
     private RaycastHit hitNode;
     private RaycastHit hitPickup;
+
+    #endregion
+
+    #region main code
 
     public void Start()
     {
@@ -79,5 +85,6 @@ public class PickupScript : MonoBehaviourPun
         inHands = false;
         isPickup = false;
     }
+
+    #endregion
 }
-    

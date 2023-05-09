@@ -10,6 +10,9 @@ using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviourPunCallbacks
 {
+    #region variables
+
+    //ui presets
     public GameObject loadingScreen;
     public GameObject mainMenu;
     public GameObject settings;
@@ -18,14 +21,24 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
     public GameObject playOptions;
     public GameObject createAndJoin;
 
+    //soundeffects
     public AudioSource soundEffect;
+
+    //loadingScreen
     public TMP_Text loading;
     public TMP_InputField roomName;
     public TMP_InputField roomNameJoin;
+
+    //options
     public Slider volumeSlider;
 
+    //random name generator
     private int randomNumber;
     public string randomName;
+
+    #endregion
+
+    #region button functions
 
     public void OnClickPlay()
     {
@@ -155,6 +168,10 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
         AudioListener.volume = volumeSlider.value;
     }
 
+    #endregion
+
+    #region extra effects
+
     public void SoundEffectTrigger()
     {
         if(soundEffect.enabled == false)
@@ -166,6 +183,10 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
             soundEffect.Play();
         }
     }
+
+    #endregion
+
+    #region loadingScreen
 
     public IEnumerator LoadingThis()
     {
@@ -187,4 +208,6 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
 
         loadingScreen.SetActive(false);
     }
+
+    #endregion
 }

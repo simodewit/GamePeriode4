@@ -5,10 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class GamePlayMenu : MonoBehaviour
 {
+    #region variables
+
+    //uiPresets
     public GameObject escapeMenu;
     public GameObject escapeSettings;
     public GameObject escapeBackToMenu;
     public GameObject escapeQuitGame;
+
+    //sounds
+    public AudioSource buttonClickSound;
+
+    #endregion
+
+    #region button functions
 
     public void Update()
     {
@@ -20,47 +30,47 @@ public class GamePlayMenu : MonoBehaviour
 
     public void EscapeMenu()
     {
-        //soundEffect
+        ButtonPressSound();
         escapeMenu.SetActive(true);
     }
 
     public void EscapeResumeToGame()
     {
-        //soundeffect
+        ButtonPressSound();
         escapeMenu.SetActive(false);
     }
 
     public void EscapeSettings()
     {
-        //soundEffect
+        ButtonPressSound();
         escapeMenu.SetActive(false);
         escapeSettings.SetActive(true);
     }
 
     public void EscapeSettingsBack()
     {
-        //soundEffect
+        ButtonPressSound();
         escapeSettings.SetActive(false);
         escapeMenu.SetActive(true);
     }
 
     public void EscapeBackToMenu()
     {
-        //soundEffect
+        ButtonPressSound();
         escapeMenu.SetActive(false);
         escapeBackToMenu.SetActive(true);
     }
 
     public void EscapeBackToMenuNo()
     {
-        //soundEffect
+        ButtonPressSound();
         escapeBackToMenu.SetActive(false);
         escapeMenu.SetActive(true);
     }
 
     public void EscapeBackToMenuYes()
     {
-        //soundEffect
+        ButtonPressSound();
         escapeBackToMenu.SetActive(false);
         //loadingScreen
         SceneManager.LoadScene("MainMenu");
@@ -68,21 +78,39 @@ public class GamePlayMenu : MonoBehaviour
 
     public void EscapeQuitGame()
     {
-        //soundEffect
+        ButtonPressSound();
         escapeMenu.SetActive(false);
         escapeQuitGame.SetActive(true);
     }
 
     public void EscapeQuitGameNo()
     {
-        //soundEffect
+        ButtonPressSound();
         escapeQuitGame.SetActive(false);
         escapeMenu.SetActive(true);
     }
 
     public void EscapeQuitGameYes()
     {
-        //soundEffect
+        ButtonPressSound();
         Application.Quit();
     }
+
+    #endregion
+
+    #region extra effects
+
+    public void ButtonPressSound()
+    {
+        if(!buttonClickSound.enabled)
+        {
+            buttonClickSound.enabled = true;
+        }
+        else
+        {
+            buttonClickSound.Play();
+        }
+    }
+
+    #endregion
 }

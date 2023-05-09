@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class SplashScreen1 : MonoBehaviour
 {
+    #region variables
+
     public GameObject background;
+
+    #endregion
+
+    #region main code
 
     public void Update()
     {
@@ -15,4 +21,6 @@ public class SplashScreen1 : MonoBehaviour
 
         //loading screen
     }
+
+    #endregion
 }
