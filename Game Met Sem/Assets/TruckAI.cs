@@ -11,6 +11,7 @@ public class TruckAI : MonoBehaviour
     public float speed;
     public float distanceToCheckPoint;
     public int questIndex;
+    public RaycastHit hit;
 
     private void Start()
     {
@@ -18,7 +19,6 @@ public class TruckAI : MonoBehaviour
         checkPoints[0] = GameObject.Find("StopPoint");
         checkPoints[1] = GameObject.Find("TheEnd");
         checkPoints[2] = GameObject.Find("EndEnd");
-        questObjects[0] = GameObject.Find("InfinityObject");
     }
 
     private void Update()
@@ -29,7 +29,7 @@ public class TruckAI : MonoBehaviour
         {
             checkPointIndex++;
             
-            if(checkPointIndex >= questObjects.Length + 1)
+            if(checkPointIndex >= questObjects.Length + 2)
             {
                 Destroy(this.gameObject);
             }

@@ -17,6 +17,8 @@ public class Movement : MonoBehaviour
     public float gravitySpeed;
     public Vector3 lookRotation;
     public bool onGround;
+    private Vector3 snapDing;
+
 
     #endregion
 
@@ -33,6 +35,7 @@ public class Movement : MonoBehaviour
 
         lookRotation.x = movement.x;
         lookRotation.z = movement.z;
+
     }
 
     public void FixedUpdate()

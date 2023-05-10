@@ -115,7 +115,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  questObjects:
-  - {fileID: 0}
+  questObjects: []
   speed: 3
   distanceToCheckPoint: 0.1
+  questIndex: 0
