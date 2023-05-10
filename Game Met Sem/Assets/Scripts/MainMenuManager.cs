@@ -41,7 +41,12 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
 
     #endregion
 
-    #region update
+    #region update/start
+
+    public void Start()
+    {
+        OnClickApplyButton();
+    }
 
     public void Update()
     {
@@ -177,22 +182,6 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
 
     #endregion
 
-    #region options
-
-    public ResolutionList[] res;
-
-    public void OptionsManager()
-    {
-        AudioListener.volume = volumeSlider.value;
-    }
-
-    public void OnClickApplyButton()
-    {
-        //Screen.SetResolution(width, height, fullscreen.isOn);
-    }
-
-    #endregion
-
     #region loadingScreen
 
     public IEnumerator LoadingThis()
@@ -217,11 +206,27 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
     }
 
     #endregion
+
+    #region options
+
+    public ResolutionList[] res;
+
+    public void OptionsManager()
+    {
+        AudioListener.volume = volumeSlider.value;
+    }
+
+    public void OnClickApplyButton()
+    {
+        Screen.SetResolution(res[resolutions.value].width, res[resolutions.value].height, fullscreen.isOn);
+    }
 }
 
-[SerializeField]
+[System.Serializable]
 public class ResolutionList
 {
     public int width;
     public int height;
 }
+
+#endregion
