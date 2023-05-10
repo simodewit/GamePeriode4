@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
@@ -33,8 +34,6 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
     public Slider volumeSlider;
     public TMP_Dropdown resolutions;
     public Toggle fullscreen;
-    public int width;
-    public int height;
 
     //random name generator
     private int randomNumber;
@@ -180,6 +179,8 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
 
     #region options
 
+    public ResolutionList[] res;
+
     public void OptionsManager()
     {
         AudioListener.volume = volumeSlider.value;
@@ -187,7 +188,7 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
 
     public void OnClickApplyButton()
     {
-        Screen.SetResolution(width, height, fullscreen.isOn);
+        //Screen.SetResolution(width, height, fullscreen.isOn);
     }
 
     #endregion
@@ -216,4 +217,11 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
     }
 
     #endregion
+}
+
+[SerializeField]
+public class ResolutionList
+{
+    public int width;
+    public int height;
 }
