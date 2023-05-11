@@ -39,6 +39,11 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
     private int randomNumber;
     public string randomName;
 
+    //checks for looking what loadingscreen
+    public bool multiplayerCreate;
+    public bool multiplayerJoin;
+    public bool singleplayer;
+
     #endregion
 
     #region update/start
@@ -73,9 +78,8 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
         randomNumber = Random.Range(100000, 999999);
         randomName = randomNumber.ToString();
 
+        singleplayer = true;
         StartCoroutine(LoadingThis());
-
-        PhotonNetwork.CreateRoom(randomName);
     }
 
     public void OnClickMultiplayer()
@@ -97,6 +101,7 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
 
         createAndJoin.SetActive(false);
         loadingScreen.SetActive(true);
+        multiplayerCreate = true;
         StartCoroutine(LoadingThis());
     }
 
@@ -109,6 +114,7 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
 
         createAndJoin.SetActive(false);
         loadingScreen.SetActive(true);
+        multiplayerJoin = true;
         StartCoroutine(LoadingThis());
     }
 
@@ -197,12 +203,34 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
         yield return new WaitForSeconds(0.5f);
         loading.text = "Loading.";
         yield return new WaitForSeconds(0.5f);
+        SpecificJoinCode();
         loading.text = "Loading..";
         yield return new WaitForSeconds(0.5f);
         loading.text = "Loading...";
         yield return new WaitForSeconds(0.1f);
 
         loadingScreen.SetActive(false);
+    }
+
+    public void SpecificJoinCode()
+    {
+        if (multiplayerCreate)
+        {
+
+            multiplayerCreate = false;
+        }
+
+        if (multiplayerJoin)
+        {
+
+            multiplayerJoin = false;
+        }
+
+        if(singleplayer)
+        {
+            PhotonNetwork.CreateRoom(randomName);
+            singleplayer = false;
+        }
     }
 
     #endregion
