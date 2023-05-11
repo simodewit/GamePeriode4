@@ -216,14 +216,20 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
     {
         if (multiplayerCreate)
         {
-
             multiplayerCreate = false;
+            if(roomName.text != "")
+            {
+                PhotonNetwork.CreateRoom(roomName.text);
+            }
         }
 
         if (multiplayerJoin)
         {
-
             multiplayerJoin = false;
+            if (roomNameJoin.text != "")
+            {
+                PhotonNetwork.JoinRoom(roomNameJoin.text);
+            }
         }
 
         if(singleplayer)
