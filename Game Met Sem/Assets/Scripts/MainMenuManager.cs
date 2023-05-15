@@ -180,11 +180,6 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
         playOptions.SetActive(true);
     }
 
-    public override void OnJoinedRoom()
-    {
-        PhotonNetwork.LoadLevel("LobbyRoom");
-    }
-
     #endregion
 
     #region loadingScreen
@@ -218,7 +213,6 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
             if(roomName.text != "")
             {
                 PhotonNetwork.CreateRoom(roomName.text);
-                PhotonNetwork.LoadLevel("LobbyRoom");
             }
             multiplayerCreate = false;
         }
@@ -227,8 +221,7 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
         {
             if (roomNameJoin.text != "")
             {
-                PhotonNetwork.JoinRoom(roomNameJoin.text);
-                PhotonNetwork.LoadLevel("LobbyRoom");
+                PhotonNetwork.JoinRoom(roomNameJoin.text);               
             }
             multiplayerJoin = false;
         }
@@ -238,6 +231,11 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
             PhotonNetwork.CreateRoom(randomName);
             singleplayer = false;
         }
+    }
+
+    public override void OnJoinedRoom()
+    {
+        PhotonNetwork.LoadLevel("LobbyRoom");
     }
 
     #endregion
