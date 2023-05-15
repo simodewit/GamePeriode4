@@ -109,7 +109,7 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
     {
         ButtonClickSound.Play();
 
-        if (roomNameJoin.text != "")
+        if (roomNameJoin.text == "")
             return;
 
         createAndJoin.SetActive(false);
