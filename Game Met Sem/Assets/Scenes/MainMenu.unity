@@ -5867,8 +5867,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Scrum: \nJoel Yemane\n\nProgrammers: \nSemm Nuesink, Simon Buikema\n\nUI/UX:
-    \nSemm Nuesink, Simon Buikema\n\nLead artist: \nJoel Yemane\n\nArtist: \nLeroy
-    poolse kut"
+    \nSemm Nuesink, Simon Buikema\n\nArtist: \nJoel Yemane, Leroy poolse kut\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8b0798ca175305b41baee5788e69d11a, type: 2}
   m_sharedMaterial: {fileID: 5116468737875376755, guid: 8b0798ca175305b41baee5788e69d11a,
@@ -8231,7 +8230,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1894333577
 RectTransform:
   m_ObjectHideFlags: 0
