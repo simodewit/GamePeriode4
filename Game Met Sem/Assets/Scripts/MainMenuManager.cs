@@ -218,7 +218,7 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
             if(roomName.text != "")
             {
                 PhotonNetwork.CreateRoom(roomName.text);
-                PhotonNetwork.LoadLevel("Lobby");
+                PhotonNetwork.LoadLevel("LobbyRoom");
             }
             multiplayerCreate = false;
         }
@@ -228,7 +228,7 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
             if (roomNameJoin.text != "")
             {
                 PhotonNetwork.JoinRoom(roomNameJoin.text);
-                PhotonNetwork.LoadLevel("Lobby");
+                PhotonNetwork.LoadLevel("LobbyRoom");
             }
             multiplayerJoin = false;
         }
