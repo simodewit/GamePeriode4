@@ -93,16 +93,16 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
     {
         ButtonClickSound.Play();
 
-        if (roomName.text != "")
+        if (roomName.text == "")
             return;
 
-        if (roomName.text.Length <= 10)
+        if (roomName.text.Length >= 11)
             return;
 
         createAndJoin.SetActive(false);
-        loadingScreen.SetActive(true);
         multiplayerCreate = true;
         StartCoroutine(LoadingThis());
+        print("print");
     }
 
     public void OnClickJoin()
@@ -113,7 +113,6 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
             return;
 
         createAndJoin.SetActive(false);
-        loadingScreen.SetActive(true);
         multiplayerJoin = true;
         StartCoroutine(LoadingThis());
     }
@@ -219,6 +218,7 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
             if(roomName.text != "")
             {
                 PhotonNetwork.CreateRoom(roomName.text);
+                PhotonNetwork.LoadLevel("Lobby");
             }
             multiplayerCreate = false;
         }
@@ -228,6 +228,7 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
             if (roomNameJoin.text != "")
             {
                 PhotonNetwork.JoinRoom(roomNameJoin.text);
+                PhotonNetwork.LoadLevel("Lobby");
             }
             multiplayerJoin = false;
         }
