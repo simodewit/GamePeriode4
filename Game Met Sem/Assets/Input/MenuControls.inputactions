@@ -1,0 +1,34 @@
+{
+    "name": "MenuControls",
+    "maps": [
+        {
+            "name": "MenuControllerSupport",
+            "id": "59746225-0068-4892-b8fd-1898045208ca",
+            "actions": [
+                {
+                    "name": "Up",
+                    "type": "Button",
+                    "id": "c5e9d300-5fef-4e1d-b4db-7d52aea19125",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d6fff2cf-f3aa-472f-91da-fe7e700331db",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Up",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
