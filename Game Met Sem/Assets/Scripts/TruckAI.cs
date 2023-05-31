@@ -24,7 +24,7 @@ public class TruckAI : MonoBehaviour
     private void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, checkPoints[checkPointIndex].transform.position, speed * Time.deltaTime);
-        
+        transform.Rotate(0, 180, 0);
         if (Vector3.Distance(transform.position, checkPoints[checkPointIndex].transform.position) <= distanceToCheckPoint)
         {
             checkPointIndex++;
