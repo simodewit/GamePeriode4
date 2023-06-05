@@ -15,17 +15,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 86a09eed9e3b43e4a85d83aba71d9b2c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.2872505
+      value: 15.988411
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 86a09eed9e3b43e4a85d83aba71d9b2c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.0214504
+      value: 9.742284
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 86a09eed9e3b43e4a85d83aba71d9b2c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.86
+      value: -4.1175165
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 86a09eed9e3b43e4a85d83aba71d9b2c,
         type: 3}
@@ -35,7 +35,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 86a09eed9e3b43e4a85d83aba71d9b2c,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 86a09eed9e3b43e4a85d83aba71d9b2c,
         type: 3}
@@ -45,7 +45,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 86a09eed9e3b43e4a85d83aba71d9b2c,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 86a09eed9e3b43e4a85d83aba71d9b2c,
         type: 3}
@@ -90,7 +90,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3225424226543579301}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-7075735910655617098
+--- !u!114 &-3524152684148925513
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,5 +109,5 @@ MonoBehaviour:
   - {fileID: 0}
   questObjects: []
   speed: 3
-  distanceToCheckPoint: 0
+  distanceToCheckPoint: 1
   questIndex: 0
