@@ -45,7 +45,7 @@ public class PickupScript : MonoBehaviourPun
 
 
     [PunRPC]
-    public void PickupObject(Vector3 scale, Vector3 position)
+    public void PickupObject()
     {
         Physics.Raycast(transform.position, transform.forward, out hitPickup, 2);
 
@@ -56,15 +56,15 @@ public class PickupScript : MonoBehaviourPun
 
         hitPickup.collider.enabled = false;
         hitPickup.transform.SetParent(empty.transform);
-        hitPickup.transform.localPosition = position;
+        hitPickup.transform.localPosition = hitPickup.transform.GetComponent<OffsetInfo>().pickupPositionOffset;
         hitPickup.transform.localRotation = Quaternion.identity;
-        hitPickup.transform.localScale = scale;
+        hitPickup.transform.localScale = hitPickup.transform.GetComponent<OffsetInfo>().pickupScaleOffset;
         hitNode.transform.GetComponent<Node>().occupied = false;
         inHands = true;
     }
 
     [PunRPC]
-    public void DropObject(Vector3 scale, Vector3 positionOffset)
+    public void DropObject()
     {
         if(!inHands)
             return;
@@ -76,9 +76,9 @@ public class PickupScript : MonoBehaviourPun
 
         hitPickup.transform.parent = null;
         hitPickup.collider.enabled = true;
-        hitPickup.transform.localPosition = hitNode.transform.position + positionOffset;
+        hitPickup.transform.localPosition = hitNode.transform.position + hitPickup.transform.GetComponent<OffsetInfo>().dropPositionOffset;
         hitPickup.transform.localRotation = Quaternion.identity;
-        hitPickup.transform.localScale = scale;
+        hitPickup.transform.localScale = hitPickup.transform.GetComponent<OffsetInfo>().dropScaleOffset;
         hitNode.transform.GetComponent<Node>().occupied = true;
         inHands = false;
     }
