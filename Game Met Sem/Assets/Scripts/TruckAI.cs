@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class TruckAI : MonoBehaviour
 {
@@ -12,9 +13,11 @@ public class TruckAI : MonoBehaviour
     public float distanceToCheckPoint;
     public int questIndex;
     public RaycastHit hit;
+    public NavMeshAgent agent;
 
     private void Start()
     {
+        agent = GetComponent<NavMeshAgent>();
         checkPointIndex = 0;
         checkPoints[0] = GameObject.Find("StopPoint");
         checkPoints[1] = GameObject.Find("TheEnd");
@@ -23,7 +26,7 @@ public class TruckAI : MonoBehaviour
 
     private void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, checkPoints[checkPointIndex].transform.position, speed * Time.deltaTime);
+        agent.destination = checkPoints[checkPointIndex].transform.position;
         if (Vector3.Distance(transform.position, checkPoints[checkPointIndex].transform.position) <= distanceToCheckPoint)
         {
             checkPointIndex++;
@@ -63,21 +66,21 @@ public class TruckAI : MonoBehaviour
     IEnumerator StartQuest1()
     {
         Debug.Log("Quest 1 started");
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(20);
         EndQuest();
                
     }
     IEnumerator StartQuest2()
     {
         Debug.Log("Quest 2 started");
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(20);
         EndQuest();
         
     }
     IEnumerator StartQuest3()
     {
         Debug.Log("Quest 3 started");
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(20);
         EndQuest();
         
     }
