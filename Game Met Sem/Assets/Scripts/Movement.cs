@@ -38,7 +38,7 @@ public class Movement : MonoBehaviour
 
         if(transform.position.y <= -5f)
         {
-            transform.position = new Vector3(5, 2, 5);
+            transform.position = new Vector3(10, 2, 1);
         }
     }
 
