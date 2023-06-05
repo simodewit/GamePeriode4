@@ -36,9 +36,9 @@ public class Movement : MonoBehaviour
         lookRotation.x = movement.x;
         lookRotation.z = movement.z;
 
-        if(transform.position.y <= -10f)
+        if(transform.position.y <= -5f)
         {
-            transform.position = new Vector3(0, 2, 0);
+            transform.position = new Vector3(5, 2, 5);
         }
     }
 

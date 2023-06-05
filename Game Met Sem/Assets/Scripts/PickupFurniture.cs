@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class PickupFurniture : MonoBehaviour
 {
-    
+    public void Update()
+    {
+        
+    }
 }

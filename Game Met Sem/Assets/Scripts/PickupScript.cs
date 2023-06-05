@@ -13,7 +13,6 @@ public class PickupScript : MonoBehaviourPun
     public PhotonView view;
     public GameObject empty;
     private bool inHands;
-    private bool isPickup;
     private RaycastHit hitNode;
     private RaycastHit hitPickup;
 
@@ -62,13 +61,12 @@ public class PickupScript : MonoBehaviourPun
         hitPickup.transform.localScale = scale;
         hitNode.transform.GetComponent<Node>().occupied = false;
         inHands = true;
-        isPickup = true;
     }
 
     [PunRPC]
     public void DropObject(Vector3 scale, Vector3 positionOffset)
     {
-        if(!isPickup)
+        if(!inHands)
             return;
 
         Physics.Raycast(empty.transform.position, -empty.transform.up, out hitNode, 2);
@@ -83,7 +81,6 @@ public class PickupScript : MonoBehaviourPun
         hitPickup.transform.localScale = scale;
         hitNode.transform.GetComponent<Node>().occupied = true;
         inHands = false;
-        isPickup = false;
     }
 
     #endregion
