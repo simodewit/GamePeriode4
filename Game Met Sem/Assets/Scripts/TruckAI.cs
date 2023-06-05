@@ -29,7 +29,7 @@ public class TruckAI : MonoBehaviour
         agent.destination = checkPoints[checkPointIndex].transform.position;
         if (Vector3.Distance(transform.position, checkPoints[checkPointIndex].transform.position) <= distanceToCheckPoint)
         {            
-            if(checkPointIndex == 2)
+            if(checkPointIndex == 1)
             {
                 Destroy(this.gameObject);
             }
