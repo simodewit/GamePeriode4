@@ -36,6 +36,10 @@ public class Movement : MonoBehaviour
         lookRotation.x = movement.x;
         lookRotation.z = movement.z;
 
+        if(transform.position.y <= -10f)
+        {
+            transform.position = new Vector3(0, 2, 0);
+        }
     }
 
     public void FixedUpdate()
