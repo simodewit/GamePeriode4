@@ -23,7 +23,7 @@ public class ConfirmToNextScene : MonoBehaviour
 
         if(slider.value >= 1)
         {
-            SceneManager.LoadScene("TestPickUp");
+            SceneManager.LoadScene("Maps");
         }
     }
 
