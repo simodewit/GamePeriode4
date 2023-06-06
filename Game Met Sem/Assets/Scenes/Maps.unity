@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589245, b: 0.2978263, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2109,8 +2109,46 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.70000005, z: 1}
+  m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 0.09220286, z: -0.36728504}
+--- !u!114 &73482802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73482800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 101
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &73482803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73482800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 087168eff45a20848a98802005b547d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropPositionOffset: {x: 0, y: 0.5, z: 0}
+  dropScaleOffset: {x: 1, y: 1, z: 1}
+  pickupPositionOffset: {x: 0, y: 0, z: 0}
+  pickupScaleOffset: {x: 1, y: 1, z: 1}
 --- !u!1001 &81456902
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2580,6 +2618,44 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.99999994, y: 1.4999999, z: 0.6999999}
   m_Center: {x: 0.000000029802322, y: 0.6177506, z: 0.035584733}
+--- !u!114 &102495441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102495439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 102
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &102495442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102495439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 087168eff45a20848a98802005b547d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropPositionOffset: {x: 0, y: 0.5, z: 0}
+  dropScaleOffset: {x: 1, y: 1, z: 1}
+  pickupPositionOffset: {x: 0, y: 0, z: 0}
+  pickupScaleOffset: {x: 1, y: 1, z: 1}
 --- !u!1001 &102610431
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7749,6 +7825,44 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000002, y: 1.245974, z: 1.0000002}
   m_Center: {x: 0, y: 0.6240373, z: -0.00000023841858}
+--- !u!114 &330877242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330877240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 103
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &330877243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330877240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 087168eff45a20848a98802005b547d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropPositionOffset: {x: 0, y: 0.5, z: 0}
+  dropScaleOffset: {x: 1, y: 1, z: 1}
+  pickupPositionOffset: {x: 0, y: 0, z: 0}
+  pickupScaleOffset: {x: 1, y: 1, z: 1}
 --- !u!4 &332859959 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8544416077620033945, guid: cdc717e47998b6b4fae3d58cfb5d1074,
