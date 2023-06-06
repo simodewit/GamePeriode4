@@ -15,6 +15,7 @@ public class PickupScript : MonoBehaviourPun
     private bool inHands;
     private RaycastHit hitNode;
     private RaycastHit hitPickup;
+    public List<string> listOfTags = new();
 
     #endregion
 
@@ -49,7 +50,16 @@ public class PickupScript : MonoBehaviourPun
     {
         Physics.Raycast(transform.position, transform.forward, out hitPickup, 2);
 
-        if (hitPickup.transform.tag != "Pickup")
+        bool hasTag = false;
+        for (int i = 0; i < listOfTags.Count; i++)
+        {
+            if(hitPickup.transform.tag == listOfTags[i])
+            {
+                hasTag = true;
+                break;
+            }
+        }
+        if (!hasTag)
             return;
 
         Physics.Raycast(empty.transform.position, -empty.transform.up, out hitNode);

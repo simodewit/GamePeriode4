@@ -324,6 +324,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   view: {fileID: 0}
   empty: {fileID: 6458248126413347855}
+  listOfTags:
+  - Wasbak
+  - Tafel
+  - Mine
+  - SmeltOven
 --- !u!136 &-8943844546640319257
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -12,6 +12,11 @@ TagManager:
   - Truck
   - MenuManager
   - Muur
+  - Wasbak
+  - Tafel
+  - SmeltOven
+  - Mine
+  - GietVorm
   layers:
   - Default
   - TransparentFX
