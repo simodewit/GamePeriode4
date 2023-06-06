@@ -109,6 +109,18 @@ public class PickupScript : MonoBehaviourPun
 
     public void RotateObject()
     {
+        bool hasTag = false;
+        for (int i = 0; i < listOfTags.Count; i++)
+        {
+            if (hitPickup.transform.tag == listOfTags[i])
+            {
+                hasTag = true;
+                break;
+            }
+        }
+        if (!hasTag)
+            return;
+
         Physics.Raycast(transform.position, transform.forward, out hitToRotate, 2);
 
         hitToRotate.transform.Rotate(new Vector3(0, 90, 0));
