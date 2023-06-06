@@ -46,9 +46,9 @@ public class WaveSpawner : MonoBehaviour
    
     public void OnClickExitBuildMode()
     {
+        BuildModeButton.SetActive(false);
         buildingMode = false;
         StartCoroutine(ServeMode(waveIndex));
-        BuildModeButton.SetActive(false);
     }
 
     IEnumerator SpawnObject(int index)
