@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using Photon.Pun;
+using Photon.Realtime;
 using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -19,7 +20,7 @@ public class PickupScript : MonoBehaviourPun
 
     #endregion
 
-    #region main code
+    #region Pickup code
 
     public void Start()
     {
@@ -30,6 +31,11 @@ public class PickupScript : MonoBehaviourPun
     {
         if(!view.IsMine)
             return;
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            view.RPC("RotateObject", RpcTarget.All);
+        }
 
         if(!Input.GetButtonDown("Fire1"))
             return;
@@ -91,6 +97,22 @@ public class PickupScript : MonoBehaviourPun
         hitPickup.transform.localScale = hitPickup.transform.GetComponent<OffsetInfo>().dropScaleOffset;
         hitNode.transform.GetComponent<Node>().occupied = true;
         inHands = false;
+    }
+
+    #endregion
+
+    #region RotateObject
+
+    public RaycastHit hitToRotate;
+
+    [PunRPC]
+
+    public void RotateObject()
+    {
+        Physics.Raycast(transform.position, transform.forward, out hitToRotate, 2);
+
+        hitToRotate.transform.Rotate(new Vector3(0, 90, 0));
+        print("abc");
     }
 
     #endregion
