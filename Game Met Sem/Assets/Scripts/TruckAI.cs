@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun.Demo.Cockpit;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -28,18 +29,12 @@ public class TruckAI : MonoBehaviour
     {
         agent.destination = checkPoints[checkPointIndex].transform.position;
         if (Vector3.Distance(transform.position, checkPoints[checkPointIndex].transform.position) <= distanceToCheckPoint)
-        {            
-            if(checkPointIndex == 1)
-            {
-                Destroy(this.gameObject);
-            }
-
+        {
             if (checkPoints[1])
             {
                 speed = 0f;
                 RandomizerQuest();
-            }
-           
+            }       
         }            
     }
     public void RandomizerQuest()
@@ -47,7 +42,14 @@ public class TruckAI : MonoBehaviour
         StartCoroutine(StartQuest1());
     }
 
-    
+    public void OnCollisionEnter(Collision collision)
+    {
+        if(collision.transform.tag == "Muur")
+        {
+            Destroy(gameObject);
+        }
+    }
+
     IEnumerator StartQuest1()
     {
         Debug.Log("Quest 1 started");

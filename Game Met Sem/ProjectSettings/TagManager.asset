@@ -11,6 +11,7 @@ TagManager:
   - Bullet
   - Truck
   - MenuManager
+  - Muur
   layers:
   - Default
   - TransparentFX
