@@ -76,10 +76,11 @@ public class MusicManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName(sceneMainGame))
         {
-            if (checksToTriggerOnce == 3)
-            {
-                checksToTriggerOnce = 1;
-            }
+            if (checksToTriggerOnce != 3)
+                return;
+
+            checksToTriggerOnce = 1;
+            ResetAllSongs();
 
             if (!inRound)
             {

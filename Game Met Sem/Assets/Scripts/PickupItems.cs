@@ -1,32 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PickupItems : MonoBehaviour
 {
-    public GameObject empty;
-    public GameObject Ore;
-    public RaycastHit hit;
-    public PickupScript pickupScript;
-    public WaveButton waveButton;
 
-    public void Update()
-    {
-        if (!Input.GetButtonDown("Fire1"))
-            return;
-
-        if(pickupScript.inHands == true)
-            return;
-
-        if (waveButton.inWave == false)
-            return;
-
-        Physics.Raycast(transform.position, transform.forward, out hit, 2);
-
-        if(hit.transform.tag == "Mine")
-        {
-            pickupScript.inHands = true;
-            Instantiate(Ore, new Vector3 (0,0,0), new Quaternion (0,0,0,0),empty.transform.parent);
-        }
-    }
 }

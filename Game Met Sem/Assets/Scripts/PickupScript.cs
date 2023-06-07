@@ -6,6 +6,7 @@ using Photon.Realtime;
 using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PickupScript : MonoBehaviourPun
 {
@@ -26,6 +27,11 @@ public class PickupScript : MonoBehaviourPun
     public void Start()
     {
         view = GetComponent<PhotonView>();
+
+        if(SceneManager.GetActiveScene() != SceneManager.GetSceneByName("Maps"))
+            return;
+
+        waveButton = GameObject.Find("ActivateWave").GetComponent<WaveButton>();
     }
 
     public void Update()
@@ -33,7 +39,10 @@ public class PickupScript : MonoBehaviourPun
         if(!view.IsMine)
             return;
 
-        if(waveButton.inWave == true)
+        if (SceneManager.GetActiveScene() != SceneManager.GetSceneByName("Maps"))
+            return;
+
+        if (waveButton.inWave == true)
             return;
 
         if (Input.GetButtonDown("Fire2"))
