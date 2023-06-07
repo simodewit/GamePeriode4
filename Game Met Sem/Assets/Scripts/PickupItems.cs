@@ -10,14 +10,14 @@ public class PickupItems : MonoBehaviour
 
     public void Update()
     {
-        if (!Input.GetKeyDown("Fire1"))
+        if (!Input.GetButtonDown("Fire1"))
             return;
 
         Physics.Raycast(transform.position, transform.forward, out hit, 2);
 
         if(hit.transform.tag == "Mine")
         {
-            Instantiate(Ore, empty.transform);
+            Instantiate(Ore, empty.transform.parent);
         }
     }
 }
