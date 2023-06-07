@@ -32,7 +32,7 @@ public class PickupScript : MonoBehaviourPun
         if(!view.IsMine)
             return;
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown("Fire2"))
         {
             view.RPC("RotateObject", RpcTarget.All);
         }

@@ -26,6 +26,11 @@ public class MusicManager : MonoBehaviour
     public bool inRound;
     private bool canRandomize;
 
+    //SceneNames
+    public string sceneMainMenu;
+    public string sceneLobby;
+    public string sceneMainGame;
+
     #endregion
 
     #region songplayer
@@ -39,7 +44,7 @@ public class MusicManager : MonoBehaviour
 
     public void Update()
     {
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MainMenu"))
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName(sceneMainMenu))
         {
             if (checksToTriggerOnce == 1)
             {
@@ -50,7 +55,7 @@ public class MusicManager : MonoBehaviour
             checksToTriggerOnce = 2;
         }
 
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LobbyRoom"))
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName(sceneLobby))
         {
             if (checksToTriggerOnce != 2)
                 return;
@@ -69,7 +74,7 @@ public class MusicManager : MonoBehaviour
                 lobbyMusic3.enabled = true;
         }
 
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("TestPickup"))
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName(sceneMainGame))
         {
             if (checksToTriggerOnce == 3)
             {

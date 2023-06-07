@@ -1699,6 +1699,9 @@ MonoBehaviour:
   outRound2: {fileID: 102078093}
   outRound3: {fileID: 570625613}
   inRound: 0
+  sceneMainMenu: MainMenu
+  sceneLobby: LobbyRoom
+  sceneMainGame: Maps
 --- !u!1 &1433396608
 GameObject:
   m_ObjectHideFlags: 0
