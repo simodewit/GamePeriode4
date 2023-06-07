@@ -33,17 +33,15 @@ public class PickupScript : MonoBehaviourPun
         if(!view.IsMine)
             return;
 
-        //if()
-        {
-
-        }
+        if(waveButton.inWave == true)
+            return;
 
         if (Input.GetButtonDown("Fire2"))
         {
             view.RPC("RotateObject", RpcTarget.All);
         }
 
-        if(!Input.GetButtonDown("Fire1"))
+        if (!Input.GetButtonDown("Fire1"))
             return;
 
         if (!inHands)
