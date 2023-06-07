@@ -9,10 +9,9 @@ public class WaveSpawner : MonoBehaviour
     private bool buildingMode = true;
     private int waveIndex;
     private Wave currentWave;
-    private bool UntilNextWave;
     public Transform spawnpoint;
-    public GameObject BuildModeButton;
     private bool finishedSpawning;
+    public WaveButton waveButton;
 
     [System.Serializable]
 
@@ -46,7 +45,6 @@ public class WaveSpawner : MonoBehaviour
    
     public void OnClickExitBuildMode()
     {
-        BuildModeButton.SetActive(false);
         buildingMode = false;
         StartCoroutine(ServeMode(waveIndex));
     }
@@ -82,9 +80,10 @@ public class WaveSpawner : MonoBehaviour
             finishedSpawning = false;
             if(waveIndex + 1 < waves.Length)
             {
+                waveButton.inWave = false;
                 waveIndex++;
                 StartCoroutine(ServeMode(waveIndex));
-                BuildModeButton.SetActive(true);
+                
                 Debug.Log("NextWave");                
             }
             else

@@ -8,11 +8,7 @@ public class PickupItems : MonoBehaviour
     public GameObject Ore;
     public RaycastHit hit;
     public PickupScript pickupScript;
-
-    public void Start()
-    {
-
-    }
+    public WaveButton waveButton;
 
     public void Update()
     {
@@ -20,6 +16,9 @@ public class PickupItems : MonoBehaviour
             return;
 
         if(pickupScript.inHands == true)
+            return;
+
+        if (waveButton.inWave == false)
             return;
 
         Physics.Raycast(transform.position, transform.forward, out hit, 2);

@@ -13,9 +13,10 @@ public class PickupScript : MonoBehaviourPun
 
     public PhotonView view;
     public GameObject empty;
-    private bool inHands;
+    public bool inHands;
     private RaycastHit hitNode;
     private RaycastHit hitPickup;
+    public WaveButton waveButton;
     public List<string> listOfTags = new();
 
     #endregion
@@ -31,6 +32,11 @@ public class PickupScript : MonoBehaviourPun
     {
         if(!view.IsMine)
             return;
+
+        //if()
+        {
+
+        }
 
         if (Input.GetButtonDown("Fire2"))
         {
