@@ -10811,6 +10811,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9866462dbd213d54ca737285ba0ca9ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  info:
+  - time: 20
+    trucks: 5
   button: {fileID: 1666907129}
   truck: {fileID: 2306524634970623476, guid: 113146cd3c3412d45abc725765c84c24, type: 3}
   place3: {fileID: 1657496938}
@@ -39765,8 +39768,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1666907134}
-        m_TargetAssemblyTypeName: WaveButton, Assembly-CSharp
+      - m_Target: {fileID: 499219805}
+        m_TargetAssemblyTypeName: WaveSpawnerScript, Assembly-CSharp
         m_MethodName: OnClickButton
         m_Mode: 1
         m_Arguments:

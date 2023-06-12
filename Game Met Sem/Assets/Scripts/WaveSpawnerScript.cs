@@ -6,7 +6,7 @@ using UnityEngine.Rendering.Universal;
 
 public class WaveSpawnerScript : MonoBehaviour
 {
-    Information[] info;
+    public Information[] info;
 
     private bool IsTriggered;
     public GameObject button;
