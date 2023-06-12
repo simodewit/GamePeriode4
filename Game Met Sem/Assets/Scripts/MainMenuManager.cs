@@ -21,6 +21,7 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
     public GameObject exitgame;
     public GameObject playOptions;
     public GameObject createAndJoin;
+    public GameObject multiplayerButton;
 
     //soundeffects
     public AudioSource ButtonClickSound;
