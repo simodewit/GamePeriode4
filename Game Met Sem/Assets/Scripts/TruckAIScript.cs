@@ -30,7 +30,7 @@ public class TruckAIScript : MonoBehaviour
         distance = Vector3.Distance(transform.position, agent.destination);
 
         if(distance > .1f)
-            return;
+           agent.speed = 0;
 
         GetOres();
         WaitPlace1();
@@ -59,7 +59,6 @@ public class TruckAIScript : MonoBehaviour
         if (place1.GetComponent<OcuppiedTruck>().occupied == true)
             return;
 
-        agent.isStopped = false;
         place2.GetComponent<OcuppiedTruck>().occupied = false;
         place1.GetComponent<OcuppiedTruck>().occupied = true;
         agent.destination = place1.transform.position;
@@ -74,10 +73,9 @@ public class TruckAIScript : MonoBehaviour
         if (place2.GetComponent<OcuppiedTruck>().occupied == true)
             return;
 
-        agent.isStopped = false;
-        agent.destination = place2.transform.position;
         place3.GetComponent<OcuppiedTruck>().occupied = false;
         place2.GetComponent<OcuppiedTruck>().occupied = true;
+        agent.destination = place2.transform.position;
         currentPlace = place2;
     }
 }

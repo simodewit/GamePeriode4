@@ -5,12 +5,12 @@ using UnityEngine;
 public class WaveButton : MonoBehaviour
 {
     public bool inWave;
-    public WaveSpawner waveSpawner;
+    public WaveSpawnerScript waveSpawner;
 
     public void OnClickButton()
     {
         inWave = true;
-        waveSpawner.OnClickExitBuildMode();
+        waveSpawner.OnClickButton();
     }
 
     public void Update()

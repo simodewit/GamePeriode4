@@ -19,17 +19,20 @@ public class SplashScreen : MonoBehaviourPunCallbacks
 
     public void Update()
     {
-
-
         if (!Input.anyKey)
             return;
 
+        if (check == true)
+            return;
+
+        check = true;
         buttonClickSound.Play();
         StartCoroutine("Loading");
     }
 
     public IEnumerator Loading()
     {
+        //dit elke keer triggeren als hij nog niet is geconnect
         yield return new WaitForSeconds(0.5f);
         text.text = "Loading.";
         yield return new WaitForSeconds(0.5f);
@@ -37,12 +40,17 @@ public class SplashScreen : MonoBehaviourPunCallbacks
         yield return new WaitForSeconds(0.5f);
         text.text = "Loading...";
         yield return new WaitForSeconds(0.5f);
+
+
+        //dit verwijderen
         text.text = "Loading.";
         yield return new WaitForSeconds(0.5f);
         text.text = "Loading..";
         yield return new WaitForSeconds(0.5f);
         text.text = "Loading...";
         yield return new WaitForSeconds(0.1f);
+
+        //deze triggeren los van de IEnumerator
         PhotonNetwork.ConnectUsingSettings();
         PhotonNetwork.JoinLobby();       
     }
