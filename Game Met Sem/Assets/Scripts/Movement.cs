@@ -27,6 +27,7 @@ public class Movement : MonoBehaviour
     private void Start()
     {
         view = GetComponent<PhotonView>();
+        DontDestroyOnLoad(gameObject);
     }
     public void Update()
     {
@@ -40,6 +41,7 @@ public class Movement : MonoBehaviour
         {
             transform.position = new Vector3(10, 2, 1);
         }
+
     }
 
     public void FixedUpdate()

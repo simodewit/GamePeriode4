@@ -10,6 +10,7 @@ public class SplashScreen : MonoBehaviourPunCallbacks
 {
     public TMP_Text text;
     public AudioSource buttonClickSound;
+    public bool check;
 
     public void Start()
     {
@@ -18,6 +19,8 @@ public class SplashScreen : MonoBehaviourPunCallbacks
 
     public void Update()
     {
+
+
         if (!Input.anyKey)
             return;
 
