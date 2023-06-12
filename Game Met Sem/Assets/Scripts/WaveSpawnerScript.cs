@@ -10,14 +10,19 @@ public class WaveSpawnerScript : MonoBehaviour
 
     private bool IsTriggered;
     public GameObject button;
-    private float timer;
+    public float timer;
     private int waveCounter;
     public GameObject truck;
     public GameObject place3;
-    private int truckBuildUp;
+    public int truckBuildUp;
     private int currentSpawnedTrucks;
     private List<GameObject> trucksInGame;
     private GameObject newTruck;
+
+    public void Start()
+    {
+        timer = info[waveCounter].time;
+    }
 
     public void Update()
     {
@@ -33,13 +38,16 @@ public class WaveSpawnerScript : MonoBehaviour
 
         if (timer > 0)
         {
-            timer = -Time.deltaTime;
+            timer -= Time.deltaTime;
             return;
         }
         
-        if(currentSpawnedTrucks == info[waveCounter].trucks)
+        if(currentSpawnedTrucks + truckBuildUp == info[waveCounter].trucks)
+        {
+            timer = 0;
             return;
-
+        }
+            
         timer = info[waveCounter].time;
         truckBuildUp += 1;
     }
@@ -53,6 +61,7 @@ public class WaveSpawnerScript : MonoBehaviour
             return;
 
         currentSpawnedTrucks += 1;
+        truckBuildUp -= 1;
         newTruck = Instantiate(truck, transform.position, Quaternion.identity);
         trucksInGame.Add(newTruck);
     }
