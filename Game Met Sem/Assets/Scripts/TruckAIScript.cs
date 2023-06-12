@@ -11,6 +11,11 @@ public class TruckAIScript : MonoBehaviour
     public GameObject place3;
     public GameObject place4;
 
+    public void Start()
+    {
+        
+    }
+
     public void Update()
     {
         
