@@ -10811,17 +10811,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9866462dbd213d54ca737285ba0ca9ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsTriggered: 0
-  button: {fileID: 0}
-  timer: 0
-  waveCounter: 0
-  truckCounter: 0
-  truck: {fileID: 0}
-  place3: {fileID: 0}
-  truckBuildUp: 0
-  currentSpawnedTrucks: 0
-  trucksInGame: []
-  newTruck: {fileID: 0}
+  button: {fileID: 1666907129}
+  truck: {fileID: 2306524634970623476, guid: 113146cd3c3412d45abc725765c84c24, type: 3}
+  place3: {fileID: 1657496938}
 --- !u!1001 &502399717
 PrefabInstance:
   m_ObjectHideFlags: 0

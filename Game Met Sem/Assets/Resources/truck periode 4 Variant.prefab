@@ -125,29 +125,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4493585093827132993, guid: 86a09eed9e3b43e4a85d83aba71d9b2c, type: 3}
---- !u!114 &-3524152684148925513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2306524634970623476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9abf44703a23f904990ec5860bc68e2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkPointIndex: 0
-  checkPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  questObjects:
-  - {fileID: 0}
-  speed: 3
-  distanceToCheckPoint: 1
-  questIndex: 0
-  agent: {fileID: 0}
 --- !u!195 &5116301943936161619
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -170,3 +147,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &4242568069008986692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2306524634970623476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c8b806d281c6340b3e7886bfacc2d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 5116301943936161619}
+  place1: {fileID: 0}
+  place2: {fileID: 0}
+  place3: {fileID: 0}
+  endPlace: {fileID: 0}

@@ -8,17 +8,16 @@ public class WaveSpawnerScript : MonoBehaviour
 {
     Information[] info;
 
-    public bool IsTriggered;
+    private bool IsTriggered;
     public GameObject button;
-    public float timer;
-    public int waveCounter;
-    public int truckCounter;
+    private float timer;
+    private int waveCounter;
     public GameObject truck;
     public GameObject place3;
-    public int truckBuildUp;
-    public int currentSpawnedTrucks;
-    public List<GameObject> trucksInGame;
-    public GameObject newTruck;
+    private int truckBuildUp;
+    private int currentSpawnedTrucks;
+    private List<GameObject> trucksInGame;
+    private GameObject newTruck;
 
     public void Update()
     {
@@ -68,6 +67,7 @@ public class WaveSpawnerScript : MonoBehaviour
 
         IsTriggered = false;
         button.SetActive(true);
+        waveCounter += 1;
     }
 
     public void OnClickButton()
