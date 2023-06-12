@@ -24,6 +24,7 @@ public class ConfirmToNextScene : MonoBehaviour
         if(slider.value >= 1)
         {
             SceneManager.LoadScene("Maps");
+            PhotonNetwork.CurrentRoom.IsOpen = false;
         }
     }
 
