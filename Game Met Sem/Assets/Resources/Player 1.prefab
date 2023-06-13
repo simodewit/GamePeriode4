@@ -144,6 +144,7 @@ GameObject:
   - component: {fileID: 7324005461975078687}
   - component: {fileID: -8943844546640319257}
   - component: {fileID: 626724324598153656}
+  - component: {fileID: -8936693489185778068}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Untagged
@@ -198,7 +199,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 96daa69515e81714c820de39525269ce, type: 2}
+  - {fileID: 2100000, guid: 35169435c0fe81242899cbeee64b238e, type: 2}
   - {fileID: 2100000, guid: ec333f563509c034fa70a5357643ccf6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -358,6 +359,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 722e7eb8489056145973a8afca9a3ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-8936693489185778068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2914474897075593096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 516e702f4b590054992b4c0b1a789570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1: {fileID: 2100000, guid: 96daa69515e81714c820de39525269ce, type: 2}
+  player2: {fileID: 2100000, guid: 35169435c0fe81242899cbeee64b238e, type: 2}
+  player3: {fileID: 2100000, guid: f395e6d6f6d6cd548ba45320aff0270b, type: 2}
+  player4: {fileID: 2100000, guid: 490c42fada2e23f4295607fdd54c9f15, type: 2}
+  view: {fileID: -5920591765913050218}
+  player: {fileID: 2914474897075593096}
 --- !u!1 &2914474897818878390
 GameObject:
   m_ObjectHideFlags: 0

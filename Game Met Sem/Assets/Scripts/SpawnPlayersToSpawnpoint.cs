@@ -10,7 +10,7 @@ public class SpawnPlayersToSpawnpoint : MonoBehaviour
     public void Start()
     {
         players[0] = GameObject.Find("Player1");
-        players[1] = GameObject.Find("Player2");
+        players[1] = GameObject.Find("Player1 (1)");
         players[2] = GameObject.Find("Player3");
         players[3] = GameObject.Find("Player4");
 

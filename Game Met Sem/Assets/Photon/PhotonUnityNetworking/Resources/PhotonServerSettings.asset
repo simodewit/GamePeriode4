@@ -48,6 +48,8 @@ MonoBehaviour:
   - DropObject
   - PickupObject
   - RotateObject
+  - ChangeColorPlayer
+  - ChangeColor
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
