@@ -50,6 +50,10 @@ MonoBehaviour:
   - RotateObject
   - ChangeColorPlayer
   - ChangeColor
+  - ChangeColor1
+  - ChangeColor2
+  - ChangeColor3
+  - ChangeColor4
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
