@@ -8,9 +8,8 @@ public class SpawningPlayer : MonoBehaviour
 {
     public GameObject player;
     public TMP_Text playerCount;
-    void Start()
+    void Awake()
     {
-        
         player = PhotonNetwork.Instantiate("Player 1", transform.position, Quaternion.identity);  
     }
     private void Update()
