@@ -34,6 +34,7 @@ public class PlayerColor : MonoBehaviour
                 if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
                 {
                     spawningPlayer.GetComponent<Renderer>().material = player1;
+                    print("mat1");
                 }
                 check1 = true;
             }
@@ -43,6 +44,7 @@ public class PlayerColor : MonoBehaviour
                 if (PhotonNetwork.CurrentRoom.PlayerCount == 2)
                 {
                     spawningPlayer.GetComponent<Renderer>().material = player2;
+                    print("mat2");
                 }
                 check2 = true;
             }
@@ -54,6 +56,7 @@ public class PlayerColor : MonoBehaviour
                 if (PhotonNetwork.CurrentRoom.PlayerCount == 3)
                 {
                     spawningPlayer.GetComponent<Renderer>().material = player3;
+                    print("mat3");
                 }
                 check3 = true;
             }
@@ -63,6 +66,7 @@ public class PlayerColor : MonoBehaviour
                 if (PhotonNetwork.CurrentRoom.PlayerCount == 4)
                 {
                     spawningPlayer.GetComponent<Renderer>().material = player4;
+                    print("mat4");
                 }
                 check4 = true;
             }
