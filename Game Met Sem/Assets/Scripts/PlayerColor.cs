@@ -14,6 +14,9 @@ public class PlayerColor : MonoBehaviour
     public GameObject spawningPlayer;
     void Start()
     {
+        if(!view.IsMine)
+            return;
+
         view = GetComponent<PhotonView>();
         spawningPlayer = GameObject.Find("LobbyManager").GetComponent<SpawningPlayer>().player;
 
