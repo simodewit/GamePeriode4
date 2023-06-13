@@ -19,8 +19,8 @@ public class PlayerColor : MonoBehaviour
     void Start()
     {
         view = GetComponent<PhotonView>();
-        view.RPC("ChangeColor", RpcTarget.All);
         spawningPlayer = GameObject.Find("LobbyManager").GetComponent<SpawningPlayer>().player;
+        view.RPC("ChangeColor", RpcTarget.All);
     }
 
     [PunRPC]
