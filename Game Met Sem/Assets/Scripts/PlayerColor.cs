@@ -11,65 +11,46 @@ public class PlayerColor : MonoBehaviour
     public Material player3;
     public Material player4;
     public PhotonView view;
-    public bool check1;
-    public bool check2;
-    public bool check3;
-    public bool check4;
     public GameObject spawningPlayer;
     void Start()
     {
         view = GetComponent<PhotonView>();
         spawningPlayer = GameObject.Find("LobbyManager").GetComponent<SpawningPlayer>().player;
-        view.RPC("ChangeColor", RpcTarget.All);
+
+        if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
+            view.RPC("ChangeColor1", RpcTarget.All);
+
+        if (PhotonNetwork.CurrentRoom.PlayerCount == 2)
+            view.RPC("ChangeColor2", RpcTarget.All);
+
+        if (PhotonNetwork.CurrentRoom.PlayerCount == 3)
+            view.RPC("ChangeColor3", RpcTarget.All);
+
+        if (PhotonNetwork.CurrentRoom.PlayerCount == 4)
+            view.RPC("ChangeColor4", RpcTarget.All);
     }
 
     [PunRPC]
-    public void ChangeColor()
+    public void ChangeColor1()
     {
-        if (view.IsMine)
-        {
-            if (check1 == false)
-            {
-                if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
-                {
-                    spawningPlayer.GetComponent<Renderer>().material = player1;
-                    print("mat1");
-                }
-                check1 = true;
-            }
+        spawningPlayer.GetComponent<Renderer>().material = player1;
+    }
 
-            if (check2 == false)
-            {
-                if (PhotonNetwork.CurrentRoom.PlayerCount == 2)
-                {
-                    spawningPlayer.GetComponent<Renderer>().material = player2;
-                    print("mat2");
-                }
-                check2 = true;
-            }
-                
+    [PunRPC]
+    public void ChangeColor2()
+    {
+        spawningPlayer.GetComponent<Renderer>().material = player2;
+    }
 
+    [PunRPC]
+    public void ChangeColor3()
+    {
+        spawningPlayer.GetComponent<Renderer>().material = player3;
+    }
 
-            if (check3 == false)
-            {
-                if (PhotonNetwork.CurrentRoom.PlayerCount == 3)
-                {
-                    spawningPlayer.GetComponent<Renderer>().material = player3;
-                    print("mat3");
-                }
-                check3 = true;
-            }
-  
-            if (check4 == false)
-            {
-                if (PhotonNetwork.CurrentRoom.PlayerCount == 4)
-                {
-                    spawningPlayer.GetComponent<Renderer>().material = player4;
-                    print("mat4");
-                }
-                check4 = true;
-            }
-               
-        }       
+    [PunRPC]
+    public void ChangeColor4()
+    {
+        spawningPlayer.GetComponent<Renderer>().material = player4;
     }
 }
