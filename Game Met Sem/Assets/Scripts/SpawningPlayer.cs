@@ -15,6 +15,7 @@ public class SpawningPlayer : MonoBehaviour
         view.RPC("test", RpcTarget.All);
     }
 
+    [PunRPC]
     public void test()
     {
         player = PhotonNetwork.Instantiate("Player 1", transform.position, Quaternion.identity);
