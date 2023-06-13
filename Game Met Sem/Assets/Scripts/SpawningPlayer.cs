@@ -13,15 +13,13 @@ public class SpawningPlayer : MonoBehaviour
 
     void Awake()
     {
-        view.RPC("test", RpcTarget.All);
+        test();
         playerCounter = 1;
-        
     }
 
     [PunRPC]
     public void test()
     {
-        print("1");
         player = PhotonNetwork.Instantiate("Player 1", transform.position, Quaternion.identity);
     }
 
