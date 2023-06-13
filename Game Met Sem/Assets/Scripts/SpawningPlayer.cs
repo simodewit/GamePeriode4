@@ -9,10 +9,12 @@ public class SpawningPlayer : MonoBehaviour
     public GameObject player;
     public TMP_Text playerCount;
     public PhotonView view;
+    public int playerCounter;
 
     void Awake()
     {
         view.RPC("test", RpcTarget.All);
+        playerCounter = 1;
     }
 
     [PunRPC]
@@ -24,6 +26,13 @@ public class SpawningPlayer : MonoBehaviour
     private void Update()
     {
         playerCount.text = PhotonNetwork.CurrentRoom.PlayerCount.ToString();
+
+        if(PhotonNetwork.CurrentRoom.PlayerCount > playerCounter)
+        {
+            view.RPC("test", RpcTarget.All);
+        }
+
+        playerCounter = PhotonNetwork.CurrentRoom.PlayerCount;
     }
 
 
