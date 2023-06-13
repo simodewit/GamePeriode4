@@ -32,6 +32,7 @@ public class SpawningPlayer : MonoBehaviour
         if(PhotonNetwork.CurrentRoom.PlayerCount > playerCounter)
         {
             view.RPC("test", RpcTarget.All);
+            print("2");
         }
 
         playerCounter = PhotonNetwork.CurrentRoom.PlayerCount;
