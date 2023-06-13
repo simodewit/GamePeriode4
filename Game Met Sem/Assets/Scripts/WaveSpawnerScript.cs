@@ -16,11 +16,12 @@ public class WaveSpawnerScript : MonoBehaviour
     public GameObject place3;
     public int truckBuildUp;
     private int currentSpawnedTrucks;
-    private List<GameObject> trucksInGame;
+    public List<GameObject> trucksInGame;
     private GameObject newTruck;
 
     public void Start()
     {
+        trucksInGame = new List<GameObject>();
         timer = info[waveCounter].time;
     }
 
@@ -64,6 +65,7 @@ public class WaveSpawnerScript : MonoBehaviour
         truckBuildUp -= 1;
         newTruck = Instantiate(truck, transform.position, Quaternion.identity);
         trucksInGame.Add(newTruck);
+        print(trucksInGame.Count);
     }
 
     public void EndWave()

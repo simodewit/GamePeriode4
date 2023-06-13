@@ -12,13 +12,14 @@ public class TruckAIScript : MonoBehaviour
     public GameObject endPlace;
     private float distance;
     private GameObject currentPlace;
-    private bool isDelivered;
+    public bool isDelivered;
 
     public void Start()
     {
         place1 = GameObject.Find("StopPoint");
         place2 = GameObject.Find("WaitInLine1");
         place3 = GameObject.Find("WaitInLine2");
+        endPlace = GameObject.Find("TheEnd");
 
         agent.destination = place3.transform.position;
         place3.GetComponent<OcuppiedTruck>().occupied = true;
@@ -29,8 +30,16 @@ public class TruckAIScript : MonoBehaviour
     {
         distance = Vector3.Distance(transform.position, agent.destination);
 
-        if(distance > .1f)
-           agent.speed = 0;
+        if(distance < .1f)
+        {
+            print("truck stopped");
+            agent.isStopped = true;
+        }
+        else
+        {
+            print("truck goes");
+            agent.isStopped = false;
+        }
 
         GetOres();
         WaitPlace1();
@@ -72,7 +81,7 @@ public class TruckAIScript : MonoBehaviour
 
         if (place2.GetComponent<OcuppiedTruck>().occupied == true)
             return;
-
+ 
         place3.GetComponent<OcuppiedTruck>().occupied = false;
         place2.GetComponent<OcuppiedTruck>().occupied = true;
         agent.destination = place2.transform.position;
