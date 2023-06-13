@@ -15,11 +15,13 @@ public class SpawningPlayer : MonoBehaviour
     {
         view.RPC("test", RpcTarget.All);
         playerCounter = 1;
+        
     }
 
     [PunRPC]
     public void test()
     {
+        print("1");
         player = PhotonNetwork.Instantiate("Player 1", transform.position, Quaternion.identity);
     }
 
