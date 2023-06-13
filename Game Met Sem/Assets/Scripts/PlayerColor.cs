@@ -16,7 +16,6 @@ public class PlayerColor : MonoBehaviour
     public bool check3;
     public bool check4;
     public GameObject spawningPlayer;
-    public SpawningPlayer spawningPlayerScript;
     void Start()
     {
         view = GetComponent<PhotonView>();
