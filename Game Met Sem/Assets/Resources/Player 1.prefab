@@ -376,12 +376,7 @@ MonoBehaviour:
   player3: {fileID: 2100000, guid: f395e6d6f6d6cd548ba45320aff0270b, type: 2}
   player4: {fileID: 2100000, guid: 490c42fada2e23f4295607fdd54c9f15, type: 2}
   view: {fileID: -5920591765913050218}
-  check1: 0
-  check2: 0
-  check3: 0
-  check4: 0
   spawningPlayer: {fileID: 0}
-  spawningPlayerScript: {fileID: 0}
 --- !u!1 &2914474897818878390
 GameObject:
   m_ObjectHideFlags: 0

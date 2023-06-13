@@ -39281,6 +39281,7 @@ MonoBehaviour:
   player: {fileID: 0}
   playerCount: {fileID: 606083914}
   view: {fileID: 1753452257}
+  playerCounter: 0
 --- !u!4 &1753452256
 Transform:
   m_ObjectHideFlags: 0
@@ -39312,7 +39313,7 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   Synchronization: 3
-  OwnershipTransfer: 0
+  OwnershipTransfer: 1
   observableSearch: 2
   ObservedComponents: []
   sceneViewId: 226
