@@ -20,6 +20,7 @@ public class SpawningPlayer : MonoBehaviour
     [PunRPC]
     public void test()
     {
+        print("gets player");
         player = PhotonNetwork.Instantiate("Player 1", transform.position, Quaternion.identity);
     }
 
@@ -27,6 +28,4 @@ public class SpawningPlayer : MonoBehaviour
     {
         playerCount.text = PhotonNetwork.CurrentRoom.PlayerCount.ToString();
     }
-
-
 }
