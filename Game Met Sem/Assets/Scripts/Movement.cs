@@ -18,6 +18,8 @@ public class Movement : MonoBehaviour
     public Vector3 lookRotation;
     public bool onGround;
     private Vector3 snapDing;
+    public ParticleSystem runStofWolk;
+    private bool isRunning;
 
 
     #endregion
@@ -42,6 +44,11 @@ public class Movement : MonoBehaviour
             transform.position = new Vector3(10, 2, 1);
         }
 
+        if (movement.x != 0) 
+        {
+            PlayParticle();
+        }
+       
     }
 
     public void FixedUpdate()
@@ -66,6 +73,11 @@ public class Movement : MonoBehaviour
             look = Quaternion.LookRotation(lookRotation, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, look, rotateSpeed);
         }
+    }
+    [PunRPC]
+    public void PlayParticle()
+    {
+        runStofWolk.Play();
     }
 
     #endregion
