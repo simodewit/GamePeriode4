@@ -55,6 +55,7 @@ MonoBehaviour:
   - ChangeColor3
   - ChangeColor4
   - test
+  - PlayParticle
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
