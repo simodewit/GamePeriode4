@@ -44,7 +44,7 @@ public class Movement : MonoBehaviour
             transform.position = new Vector3(10, 2, 1);
         }
 
-        if (movement == Vector3.zero) 
+        if (lookRotation == Vector3.zero) 
         {
             PlayParticle();
         }
