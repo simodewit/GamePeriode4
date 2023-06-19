@@ -44,7 +44,7 @@ public class Movement : MonoBehaviour
             transform.position = new Vector3(10, 2, 1);
         }
 
-        if (movement.x != 0) 
+        if (movement == Vector3.zero) 
         {
             PlayParticle();
         }
@@ -77,7 +77,7 @@ public class Movement : MonoBehaviour
     [PunRPC]
     public void PlayParticle()
     {
-        runStofWolk.Play();
+        runStofWolk.Stop();
     }
 
     #endregion
