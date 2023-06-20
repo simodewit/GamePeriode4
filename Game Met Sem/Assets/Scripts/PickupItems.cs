@@ -35,8 +35,6 @@ public class PickupItems : MonoBehaviour
         if (waveButton.inWave == false)
             return;
 
-        print("hallloooo");
-
         if (!Input.GetButtonDown("Fire1"))
             return;
 
@@ -66,6 +64,8 @@ public class PickupItems : MonoBehaviour
         }
         if (!hasTag)
             return;
+
+        print("PickedUp");
         Physics.Raycast(empty.transform.position, -empty.transform.up, out hitObject);
 
         hitPickUp.collider.enabled = false;
