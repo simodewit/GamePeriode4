@@ -53,21 +53,21 @@ public class SpawningPlayer : MonoBehaviourPunCallbacks
     [PunRPC]
     public void NormalClients()
     {
-        if (players[1] != null)
+        if (players[1] == null)
         {
             print("player two spawns");
             players[1] = PhotonNetwork.Instantiate("Player 1", transform.position, Quaternion.identity);
             players[1].GetComponent<Renderer>().material = materials[1];
             return;
         }
-        else if (players[2] != null)
+        else if (players[2] == null)
         {
             print("player three spawns");
             players[2] = PhotonNetwork.Instantiate("Player 1", transform.position, Quaternion.identity);
             players[2].GetComponent<Renderer>().material = materials[2];
             return;
         }
-        else if (players[3] != null)
+        else if (players[3] == null)
         {
             print("player four spawns");
             players[3] = PhotonNetwork.Instantiate("Player 1", transform.position, Quaternion.identity);
