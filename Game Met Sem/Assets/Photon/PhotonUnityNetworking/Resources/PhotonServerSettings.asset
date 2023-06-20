@@ -63,6 +63,10 @@ MonoBehaviour:
   - HostClient
   - HostLeft
   - NormalClients
+  - DropItems
+  - StartParticles
+  - StartUX
+  - TheEnd
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

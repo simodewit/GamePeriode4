@@ -364,6 +364,8 @@ MonoBehaviour:
   view: {fileID: -5920591765913050218}
   listOfTags:
   - ViesOre
+  listOfTagss:
+  - SmeltOven
   waveButton: {fileID: 0}
 --- !u!1 &2914474897818878390
 GameObject:

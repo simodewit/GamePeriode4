@@ -3020,7 +3020,11 @@ MonoBehaviour:
   occupied: 0
   timeToWait: 5
   ChildCount: 4
-  view: {fileID: 0}
+  view: {fileID: 102495441}
+  rook: {fileID: 1136698169}
+  licht1: {fileID: 1812058552}
+  licht2: {fileID: 2063613838}
+  check: 0
 --- !u!1001 &108988264
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4560,8 +4564,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 184381625}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.106, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 102495438}
@@ -29805,17 +29809,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b6a124c46fdcc0948bb2eff59a313534,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.99999994
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b6a124c46fdcc0948bb2eff59a313534,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.99999994
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b6a124c46fdcc0948bb2eff59a313534,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.99999994
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b6a124c46fdcc0948bb2eff59a313534,
         type: 3}
@@ -30786,7 +30790,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1136698167
 Transform:
   m_ObjectHideFlags: 0
@@ -30957,7 +30961,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -31010,7 +31014,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -55536,7 +55540,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1812058549}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
@@ -60592,7 +60596,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2063613835}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0

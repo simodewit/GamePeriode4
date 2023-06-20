@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class SmeltOvenScript : MonoBehaviour
 {
@@ -9,10 +11,14 @@ public class SmeltOvenScript : MonoBehaviour
     public float timeToWait;
     public int ChildCount;
     public PhotonView view;
+    public ParticleSystem rook;
+    public Light licht1;
+    public Light licht2;
+    public bool check;
 
     public void Update()
     {
-        if(transform.childCount > ChildCount)
+        if (transform.Find("Place").transform.childCount == 1)
         {
             occupied = true;
         }
@@ -21,28 +27,29 @@ public class SmeltOvenScript : MonoBehaviour
             occupied = false;
         }
 
-        if(occupied == false) 
+        if (occupied == false)
             return;
 
-        view.RPC("WaitTime", RpcTarget.All);
+        StartCoroutine(WaitTime());
     }
-
-    [PunRPC]
     IEnumerator WaitTime()
     {
+        view.RPC("StartUX", RpcTarget.All);
         yield return new WaitForSeconds(timeToWait);
-        view.RPC("ChangeObject", RpcTarget.All);
+        view.RPC("TheEnd", RpcTarget.All);
     }
 
-    [System.Obsolete]
     [PunRPC]
-    public void ChangeObject()
+    public void TheEnd()
     {
-        PhotonNetwork.Destroy(transform.FindChild("iron ore (vies)").transform.gameObject);
-        PhotonNetwork.Instantiate("Nugget", transform.FindChild("Place").transform.position, transform.FindChild("Place").transform.rotation);
+        licht1.enabled = false;
+        licht2.enabled = false;
     }
 
-
-
-
+    [PunRPC]
+    public void StartUX()
+    {
+        licht1.enabled = true;
+        licht2.enabled = true;
+    }
 }

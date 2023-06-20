@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR;
 using Photon.Pun;
+using System.Diagnostics.CodeAnalysis;
 
 public class PickupItems : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class PickupItems : MonoBehaviour
     public bool inHand;
     public PhotonView view;
     public List<string> listOfTags = new();
+    public List<string> listOfTagss = new();
     public WaveButton waveButton;
     private bool check;
 
@@ -38,13 +40,15 @@ public class PickupItems : MonoBehaviour
         if (!Input.GetButtonDown("Fire1"))
             return;
 
+        print("does work");
+
         if (!inHand)
         {
             view.RPC("PickUpItem", RpcTarget.All);
         }
         else
         {
-            view.RPC("DropItem", RpcTarget.All);
+            view.RPC("DropItems", RpcTarget.All);
         }
     }
 
@@ -78,14 +82,16 @@ public class PickupItems : MonoBehaviour
     }
 
     [System.Obsolete]
+    [PunRPC]
     public void DropItems()
     {
         Physics.Raycast(transform.position, transform.forward, out hitDrop, 2);
 
+        print("wtfff brooo");
         bool hasTag = false;
-        for (int i = 0; i < listOfTags.Count; i++)
+        for (int i = 0; i < listOfTagss.Count; i++)
         {
-            if (hitDrop.transform.tag == listOfTags[i])
+            if (hitDrop.transform.tag == listOfTagss[i])
             {
                 hasTag = true;
                 break;
@@ -94,12 +100,12 @@ public class PickupItems : MonoBehaviour
         if (!hasTag)
             return;
 
-        hitPickUp.transform.SetParent(empty.transform);
+        hitPickUp.transform.SetParent(hitDrop.transform.FindChild("Place").transform);
         hitPickUp.transform.localPosition = hitDrop.transform.FindChild("Place").transform.localPosition;
         hitPickUp.transform.localScale = hitDrop.transform.FindChild("Place").transform.localScale;
         hitPickUp.transform.rotation = hitDrop.transform.FindChild("Place").transform.localRotation;
         inHand = false;
-
+        print("Dropped it");
 
     }
 }
