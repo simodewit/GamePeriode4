@@ -14,9 +14,15 @@ public class SpawningPlayer : MonoBehaviourPunCallbacks
     public GameObject hostPlayer;
     public GameObject[] players;
     public Material[] materials;
+    public GameObject panelHostLeave;
+    public GameObject panelMoreThanFourPlayers;
 
     public void Start()
     {
+        view = gameObject.GetComponent<PhotonView>();
+        panelHostLeave = GameObject.Find("HostLeave");
+        panelMoreThanFourPlayers = GameObject.Find("FivePlayers");
+
         if(!view.IsMine)
             return;
 
@@ -30,13 +36,8 @@ public class SpawningPlayer : MonoBehaviourPunCallbacks
     {
         if(hostPlayer == null)
         {
-            view.RPC("MigrateHost", RpcTarget.All);
+            panelHostLeave.SetActive(true);
         }
-    }
-
-    public void MirgrateHost()
-    {
-        
     }
 
     public void FirstPlayer()
@@ -49,32 +50,30 @@ public class SpawningPlayer : MonoBehaviourPunCallbacks
 
     public void OtherPlayer()
     {
-        currentPlayer = PhotonNetwork.Instantiate("PlayerCharacter Variant", transform.position, Quaternion.identity);
+        currentPlayer = PhotonNetwork.Instantiate("PlayerCharacter Variant", new Vector3 (0,1,0), Quaternion.identity);
         hostPlayer = GameObject.Find("MainPlayer");
 
-        if (hostPlayer.GetComponent<SpawningPlayer>().players[1] == null)
-        {
-            gameObject.name = "Player1";
-            hostPlayer.GetComponent<SpawningPlayer>().players[1] = playerPrefab;
-            currentPlayer.GetComponent<Renderer>().material = materials[1];
-        }
         if (hostPlayer.GetComponent<SpawningPlayer>().players[2] == null)
         {
             gameObject.name = "Player2";
             hostPlayer.GetComponent<SpawningPlayer>().players[2] = playerPrefab;
             currentPlayer.GetComponent<Renderer>().material = materials[2];
         }
-        if (hostPlayer.GetComponent<SpawningPlayer>().players[3] == null)
+        else if (hostPlayer.GetComponent<SpawningPlayer>().players[3] == null)
         {
             gameObject.name = "Player3";
             hostPlayer.GetComponent<SpawningPlayer>().players[3] = playerPrefab;
             currentPlayer.GetComponent<Renderer>().material = materials[3];
         }
-        if (hostPlayer.GetComponent<SpawningPlayer>().players[4] == null)
+        else if (hostPlayer.GetComponent<SpawningPlayer>().players[4] == null)
         {
             gameObject.name = "Player4";
             hostPlayer.GetComponent<SpawningPlayer>().players[4] = playerPrefab;
             currentPlayer.GetComponent<Renderer>().material = materials[4];
+        }
+        else
+        {
+            panelMoreThanFourPlayers.SetActive(true);
         }
     }
 }

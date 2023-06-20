@@ -142,8 +142,8 @@ GameObject:
   - component: {fileID: 9066757042610466141}
   - component: {fileID: 7821420450571267360}
   - component: {fileID: -8943844546640319257}
-  - component: {fileID: -8936693489185778068}
   - component: {fileID: -2964720123827855511}
+  - component: {fileID: 6565559290524887276}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Untagged
@@ -326,27 +326,6 @@ CapsuleCollider:
   m_Height: 1.9999999
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-8936693489185778068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2914474897075593096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 516e702f4b590054992b4c0b1a789570, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player1: {fileID: 2100000, guid: 96daa69515e81714c820de39525269ce, type: 2}
-  player2: {fileID: 2100000, guid: 35169435c0fe81242899cbeee64b238e, type: 2}
-  player3: {fileID: 2100000, guid: f395e6d6f6d6cd548ba45320aff0270b, type: 2}
-  player4: {fileID: 2100000, guid: 490c42fada2e23f4295607fdd54c9f15, type: 2}
-  view: {fileID: -5920591765913050218}
-  spawningPlayer: {fileID: 0}
-  player1Prefab: {fileID: 0}
-  player2Prefab: {fileID: 0}
-  player3Prefab: {fileID: 0}
 --- !u!114 &-2964720123827855511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,6 +347,30 @@ MonoBehaviour:
   - Tafel
   - Mine
   empty: {fileID: 6458248126413347855}
+--- !u!114 &6565559290524887276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2914474897075593096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b563d459f73f8c246a1aa8abb2ee0510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  view: {fileID: 0}
+  playerPrefab: {fileID: 2914474897075593096}
+  currentPlayer: {fileID: 0}
+  hostPlayer: {fileID: 0}
+  players: []
+  materials:
+  - {fileID: 2100000, guid: 45253ebbe32f4fa449b926549f145d04, type: 2}
+  - {fileID: 2100000, guid: 96daa69515e81714c820de39525269ce, type: 2}
+  - {fileID: 2100000, guid: b24d05dd4b212934382aebef1fd9e053, type: 2}
+  - {fileID: 2100000, guid: c89866ac351d5f449aac4cbda6d09ff5, type: 2}
+  panelHostLeave: {fileID: 0}
+  panelMoreThanFourPlayers: {fileID: 0}
 --- !u!1 &2914474897818878390
 GameObject:
   m_ObjectHideFlags: 0
