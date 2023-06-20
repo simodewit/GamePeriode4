@@ -141,10 +141,9 @@ GameObject:
   - component: {fileID: -5920591765913050218}
   - component: {fileID: 9066757042610466141}
   - component: {fileID: 7821420450571267360}
-  - component: {fileID: 7324005461975078687}
   - component: {fileID: -8943844546640319257}
-  - component: {fileID: 626724324598153656}
   - component: {fileID: -8936693489185778068}
+  - component: {fileID: -2964720123827855511}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Untagged
@@ -313,27 +312,6 @@ MonoBehaviour:
   lookRotation: {x: 0, y: 0, z: 0}
   onGround: 0
   runStofWolk: {fileID: 5279109016776869156}
---- !u!114 &7324005461975078687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2914474897075593096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c1d40a1dbf9558439f7666cbed9cc37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  view: {fileID: 0}
-  empty: {fileID: 6458248126413347855}
-  inHands: 0
-  waveButton: {fileID: 0}
-  listOfTags:
-  - Wasbak
-  - Tafel
-  - Mine
-  - SmeltOven
 --- !u!136 &-8943844546640319257
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -348,18 +326,6 @@ CapsuleCollider:
   m_Height: 1.9999999
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &626724324598153656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2914474897075593096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 722e7eb8489056145973a8afca9a3ac9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-8936693489185778068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,6 +347,27 @@ MonoBehaviour:
   player1Prefab: {fileID: 0}
   player2Prefab: {fileID: 0}
   player3Prefab: {fileID: 0}
+--- !u!114 &-2964720123827855511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2914474897075593096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2847cd83f2cccf440b9e98a849282381, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveButton: {fileID: 0}
+  inHand: 0
+  view: {fileID: -5920591765913050218}
+  listOfTags:
+  - SmeltOven
+  - WasBak
+  - Tafel
+  - Mine
+  empty: {fileID: 6458248126413347855}
 --- !u!1 &2914474897818878390
 GameObject:
   m_ObjectHideFlags: 0
