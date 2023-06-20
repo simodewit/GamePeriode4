@@ -17,6 +17,9 @@ TagManager:
   - SmeltOven
   - Mine
   - GietVorm
+  - ViesOre
+  - Nugget
+  - SnelleWasbak
   layers:
   - Default
   - TransparentFX

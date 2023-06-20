@@ -16,6 +16,7 @@ public class PickUpScriptSemm : MonoBehaviour
     public RaycastHit hitToRotate;
     public List<string> listOfTags = new();
     public GameObject empty;
+    private bool check;
 
     public void Start()
     {
@@ -28,9 +29,16 @@ public class PickUpScriptSemm : MonoBehaviour
         if(SceneManager.GetActiveScene() != SceneManager.GetSceneByName("Maps"))
             return;
 
-        waveButton = GameObject.Find("ActivateWave").GetComponent<WaveButton>();
+        if (!check)
+        {
+            waveButton = GameObject.Find("ActivateWave").GetComponent<WaveButton>();
+            check = true;
+        }
 
         if (!view.IsMine)
+            return;
+
+        if(waveButton.inWave == true)
             return;
 
         if (Input.GetButtonDown("Fire2"))
