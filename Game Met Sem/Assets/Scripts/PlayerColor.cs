@@ -23,7 +23,7 @@ public class PlayerColor : MonoBehaviour
             return;
 
         view = GetComponent<PhotonView>();
-        spawningPlayer = GameObject.Find("LobbyManager").GetComponent<SpawningPlayer>().player;
+        //spawningPlayer = GameObject.Find("LobbyManager").GetComponent<SpawningPlayer>().player;
 
         if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
             view.RPC("ChangeColor1", RpcTarget.All);

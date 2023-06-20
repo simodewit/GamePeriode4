@@ -3,29 +3,78 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using TMPro;
+using JetBrains.Annotations;
+using Photon.Realtime;
 
-public class SpawningPlayer : MonoBehaviour
+public class SpawningPlayer : MonoBehaviourPunCallbacks
 {
-    public GameObject player;
-    public TMP_Text playerCount;
     public PhotonView view;
-    public int playerCounter;
+    public GameObject playerPrefab;
+    public GameObject currentPlayer;
+    public GameObject hostPlayer;
+    public GameObject[] players;
+    public Material[] materials;
 
-    void Awake()
+    public void Start()
     {
-        test();
-        playerCounter = 1;
+        if(!view.IsMine)
+            return;
+
+        if (PhotonNetwork.CurrentRoom.PlayerCount != 1)
+            view.RPC("OtherPlayer", RpcTarget.All);
+
+        view.RPC("FirstPlayer", RpcTarget.All);
     }
 
-    [PunRPC]
-    public void test()
+    public void Update()
     {
-        print("gets player");
-        player = PhotonNetwork.Instantiate("Player 1", transform.position, Quaternion.identity);
+        if(hostPlayer == null)
+        {
+            view.RPC("MigrateHost", RpcTarget.All);
+        }
     }
 
-    private void Update()
+    public void MirgrateHost()
     {
-        playerCount.text = PhotonNetwork.CurrentRoom.PlayerCount.ToString();
+        
+    }
+
+    public void FirstPlayer()
+    {
+        currentPlayer = PhotonNetwork.Instantiate("PlayerCharacter Variant", transform.position, Quaternion.identity);
+        currentPlayer.GetComponent<Renderer>().material = materials[1];
+        players[PhotonNetwork.CurrentRoom.PlayerCount] = playerPrefab;
+        gameObject.name = "MainPlayer";
+    }
+
+    public void OtherPlayer()
+    {
+        currentPlayer = PhotonNetwork.Instantiate("PlayerCharacter Variant", transform.position, Quaternion.identity);
+        hostPlayer = GameObject.Find("MainPlayer");
+
+        if (hostPlayer.GetComponent<SpawningPlayer>().players[1] == null)
+        {
+            gameObject.name = "Player1";
+            hostPlayer.GetComponent<SpawningPlayer>().players[1] = playerPrefab;
+            currentPlayer.GetComponent<Renderer>().material = materials[1];
+        }
+        if (hostPlayer.GetComponent<SpawningPlayer>().players[2] == null)
+        {
+            gameObject.name = "Player2";
+            hostPlayer.GetComponent<SpawningPlayer>().players[2] = playerPrefab;
+            currentPlayer.GetComponent<Renderer>().material = materials[2];
+        }
+        if (hostPlayer.GetComponent<SpawningPlayer>().players[3] == null)
+        {
+            gameObject.name = "Player3";
+            hostPlayer.GetComponent<SpawningPlayer>().players[3] = playerPrefab;
+            currentPlayer.GetComponent<Renderer>().material = materials[3];
+        }
+        if (hostPlayer.GetComponent<SpawningPlayer>().players[4] == null)
+        {
+            gameObject.name = "Player4";
+            hostPlayer.GetComponent<SpawningPlayer>().players[4] = playerPrefab;
+            currentPlayer.GetComponent<Renderer>().material = materials[4];
+        }
     }
 }
