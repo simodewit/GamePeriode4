@@ -363,9 +363,7 @@ MonoBehaviour:
   inHand: 0
   view: {fileID: -5920591765913050218}
   listOfTags:
-  - iron ore (vies)
-  - 
-  - 
+  - ViesOre
   waveButton: {fileID: 0}
 --- !u!1 &2914474897818878390
 GameObject:
