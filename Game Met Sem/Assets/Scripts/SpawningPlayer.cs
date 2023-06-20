@@ -23,8 +23,6 @@ public class SpawningPlayer : MonoBehaviourPunCallbacks
         panelHostLeave = GameObject.Find("HostLeave");
         panelMoreThanFourPlayers = GameObject.Find("FivePlayers");
 
-
-
         if(!view.IsMine)
             return;
 
