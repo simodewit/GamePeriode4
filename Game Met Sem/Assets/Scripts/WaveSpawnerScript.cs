@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -18,20 +19,23 @@ public class WaveSpawnerScript : MonoBehaviour
     private int currentSpawnedTrucks;
     public List<GameObject> trucksInGame;
     private GameObject newTruck;
+    public PhotonView view;
 
     public void Start()
     {
+        view = GetComponent<PhotonView>();
         trucksInGame = new List<GameObject>();
         timer = info[waveCounter].time;
     }
 
     public void Update()
     {
-        Timer();
-        TruckSpawner();
-        EndWave();
+        view.RPC("Timer", RpcTarget.All);
+        view.RPC("TruckSpawner", RpcTarget.All);
+        view.RPC("EndWave", RpcTarget.All);
     }
 
+    [PunRPC]
     public void Timer()
     {
         if (!IsTriggered)
@@ -53,6 +57,7 @@ public class WaveSpawnerScript : MonoBehaviour
         truckBuildUp += 1;
     }
 
+    [PunRPC]
     public void TruckSpawner()
     {
         if (place3.GetComponent<OcuppiedTruck>().occupied)
@@ -63,11 +68,12 @@ public class WaveSpawnerScript : MonoBehaviour
 
         currentSpawnedTrucks += 1;
         truckBuildUp -= 1;
-        newTruck = Instantiate(truck, transform.position, Quaternion.identity);
+        newTruck = PhotonNetwork.Instantiate("truck", transform.position, new Quaternion (0,180,0,0));
         trucksInGame.Add(newTruck);
         print(trucksInGame.Count);
     }
 
+    [PunRPC]
     public void EndWave()
     {
         if(info[waveCounter].trucks != currentSpawnedTrucks)

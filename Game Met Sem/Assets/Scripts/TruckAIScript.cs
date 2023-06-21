@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,47 +6,63 @@ using UnityEngine.AI;
 
 public class TruckAIScript : MonoBehaviour
 {
-    public NavMeshAgent agent;
+    public PhotonView view;
+
+    //places where he can stand
     public GameObject place1;
     public GameObject place2;
     public GameObject place3;
     public GameObject endPlace;
-    private float distance;
-    private GameObject currentPlace;
+
+    //in script things
+    public float distance;
+    public GameObject currentPlace;
     public bool isDelivered;
+
+    public float moveSpeed;
+    public Vector3 moveDirection;
 
     public void Start()
     {
+        view = transform.GetComponent<PhotonView>();
+
+        if (!view.IsMine)
+            return;
+
         place1 = GameObject.Find("StopPoint");
         place2 = GameObject.Find("WaitInLine1");
         place3 = GameObject.Find("WaitInLine2");
         endPlace = GameObject.Find("TheEnd");
 
-        agent.destination = place3.transform.position;
-        place3.GetComponent<OcuppiedTruck>().occupied = true;
         currentPlace = place3;
+        place3.GetComponent<OcuppiedTruck>().occupied = true;
     }
 
     public void Update()
     {
-        distance = Vector3.Distance(transform.position, agent.destination);
+        if(!view.IsMine)
+            return;
 
-        if(distance < .1f)
+        distance = Vector3.Distance(transform.position, currentPlace.transform.position);
+
+        if(distance > 5)
         {
-            print("truck stopped");
-            agent.isStopped = true;
-        }
-        else
-        {
-            print("truck goes");
-            agent.isStopped = false;
+            view.RPC("MoveTruck", RpcTarget.All, moveSpeed = 3);
         }
 
-        GetOres();
-        WaitPlace1();
-        WaitPlace2();
+        if (distance > 2.5)
+        {
+            if(distance < 5)
+                view.RPC("MoveTruck", RpcTarget.All, distance - 1f);
+        }
+
+
+        view.RPC("GetOres",RpcTarget.All);
+        view.RPC("WaitPlace1", RpcTarget.All);
+        view.RPC("WaitPlace2", RpcTarget.All);
     }
 
+    [PunRPC]
     public void GetOres()
     {
         if(currentPlace != place1)
@@ -55,11 +72,11 @@ public class TruckAIScript : MonoBehaviour
         if (isDelivered == false)
             return;
 
-        place1.GetComponent<OcuppiedTruck>().occupied = false;
-        agent.destination = endPlace.transform.position;
         currentPlace = endPlace;
+        place1.GetComponent<OcuppiedTruck>().occupied = false;
     }
 
+    [PunRPC]
     public void WaitPlace1()
     {
         if (currentPlace != place2)
@@ -68,12 +85,12 @@ public class TruckAIScript : MonoBehaviour
         if (place1.GetComponent<OcuppiedTruck>().occupied == true)
             return;
 
-        place2.GetComponent<OcuppiedTruck>().occupied = false;
-        place1.GetComponent<OcuppiedTruck>().occupied = true;
-        agent.destination = place1.transform.position;
         currentPlace = place1;
+        place1.GetComponent<OcuppiedTruck>().occupied = true;
+        place2.GetComponent<OcuppiedTruck>().occupied = false;
     }
 
+    [PunRPC]
     public void WaitPlace2()
     {
         if (currentPlace != place3)
@@ -81,10 +98,15 @@ public class TruckAIScript : MonoBehaviour
 
         if (place2.GetComponent<OcuppiedTruck>().occupied == true)
             return;
- 
-        place3.GetComponent<OcuppiedTruck>().occupied = false;
-        place2.GetComponent<OcuppiedTruck>().occupied = true;
-        agent.destination = place2.transform.position;
+
         currentPlace = place2;
+        place2.GetComponent<OcuppiedTruck>().occupied = true;
+        place3.GetComponent<OcuppiedTruck>().occupied = false;
+    }
+
+    [PunRPC]
+    public void MoveTruck(float moveSpeed)
+    {
+        transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
     }
 }
