@@ -11,6 +11,8 @@ public class SplashScreen : MonoBehaviourPunCallbacks
     public TMP_Text text;
     public AudioSource buttonClickSound;
     public bool check;
+    public bool isConnected;
+    public bool isLoading;
 
     public void Start()
     {
@@ -19,44 +21,59 @@ public class SplashScreen : MonoBehaviourPunCallbacks
 
     public void Update()
     {
+        if (check == true)
+        {
+            if(isConnected == false)
+            {
+                if(isLoading == false)
+                {
+                    StartCoroutine("Loading");
+                    isLoading = true;
+                }
+            }
+            else
+            {
+                SceneManager.LoadScene("MainMenu");
+            }
+        }
+
         if (!Input.anyKey)
             return;
 
-        if (check == true)
+        if(check == true)
             return;
 
+        PhotonNetwork.ConnectUsingSettings();
+        PhotonNetwork.JoinLobby();
         check = true;
         buttonClickSound.Play();
-        StartCoroutine("Loading");
+
     }
 
     public IEnumerator Loading()
     {
-        //dit elke keer triggeren als hij nog niet is geconnect
-        yield return new WaitForSeconds(0.5f);
-        text.text = "Loading.";
-        yield return new WaitForSeconds(0.5f);
-        text.text = "Loading..";
-        yield return new WaitForSeconds(0.5f);
-        text.text = "Loading...";
-        yield return new WaitForSeconds(0.5f);
-
-
-        //dit verwijderen
-        text.text = "Loading.";
-        yield return new WaitForSeconds(0.5f);
-        text.text = "Loading..";
-        yield return new WaitForSeconds(0.5f);
-        text.text = "Loading...";
-        yield return new WaitForSeconds(0.1f);
-
-        //deze triggeren los van de IEnumerator
-        PhotonNetwork.ConnectUsingSettings();
-        PhotonNetwork.JoinLobby();       
+        if(text.text == "Loading.")
+        {
+            text.text = "Loading..";
+            yield return new WaitForSeconds(0.5f);
+            isLoading = false;
+        }
+        if (text.text == "Loading..")
+        {
+            text.text = "Loading...";
+            yield return new WaitForSeconds(0.5f);
+            isLoading = false;
+        }
+        if (text.text == "Loading...")
+        {
+            text.text = "Loading.";
+            yield return new WaitForSeconds(0.5f);
+            isLoading = false;
+        }    
     }
 
     public override void OnConnectedToMaster()
     {
-        SceneManager.LoadScene("MainMenu");
+        isConnected = true;
     }
 }
