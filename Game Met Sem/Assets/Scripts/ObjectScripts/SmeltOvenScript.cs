@@ -18,20 +18,13 @@ public class SmeltOvenScript : MonoBehaviour
 
     public void Update()
     {
-        if (transform.Find("Place").transform.childCount == 1)
+        if (transform.Find("Place").transform.childCount == 1||occupied == false)
         {
             occupied = true;
-        }
-        else
-        {
-            occupied = false;
-        }
-
-        if (occupied == false)
-            return;
-
-        StartCoroutine(WaitTime());
+            StartCoroutine(WaitTime());
+        }       
     }
+
     IEnumerator WaitTime()
     {
         view.RPC("StartUX", RpcTarget.All);
@@ -42,14 +35,14 @@ public class SmeltOvenScript : MonoBehaviour
     [PunRPC]
     public void TheEnd()
     {
-        licht1.enabled = false;
-        licht2.enabled = false;
+        licht1.gameObject.SetActive(false);
+        licht2.gameObject.SetActive(false);
     }
 
     [PunRPC]
     public void StartUX()
     {
-        licht1.enabled = true;
-        licht2.enabled = true;
+        licht1.gameObject.SetActive(true);
+        licht2.gameObject.SetActive(true);
     }
 }

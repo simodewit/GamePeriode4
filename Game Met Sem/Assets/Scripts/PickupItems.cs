@@ -55,30 +55,45 @@ public class PickupItems : MonoBehaviour
     [PunRPC]
     public void PickUpItem()
     {
+        //Physics.Raycast(transform.position, transform.forward, out hitPickUp, 2);
+
+        //bool hasTag = false;
+        //for (int i = 0; i < listOfTags.Count; i++)
+        //{
+        //    if (hitPickUp.transform.tag == listOfTags[i])
+        //    {
+        //        hasTag = true;
+        //        break;
+        //    }
+        //}
+        //if (!hasTag)
+        //    return;
+
+        //print("PickedUp");
+        //Physics.Raycast(empty.transform.position, -empty.transform.up, out hitObject);
+
+        //hitPickUp.collider.enabled = false;
+        //hitPickUp.transform.SetParent(empty.transform);
+        //hitPickUp.transform.localPosition = hitPickUp.transform.GetComponent<OffsetInfo>().pickupPositionOffset;
+        //hitPickUp.transform.localRotation = Quaternion.identity;
+        //hitPickUp.transform.localScale = hitPickUp.transform.GetComponent<OffsetInfo>().pickupScaleOffset;
+        //hitObject.transform.GetComponent<Node>().occupied = false;
+        //inHand = true;
+
         Physics.Raycast(transform.position, transform.forward, out hitPickUp, 2);
 
-        bool hasTag = false;
-        for (int i = 0; i < listOfTags.Count; i++)
+        if (hitPickUp.transform.tag == "Mine")
         {
-            if (hitPickUp.transform.tag == listOfTags[i])
-            {
-                hasTag = true;
-                break;
-            }
+            //instantiate
         }
-        if (!hasTag)
-            return;
-
-        print("PickedUp");
-        Physics.Raycast(empty.transform.position, -empty.transform.up, out hitObject);
-
-        hitPickUp.collider.enabled = false;
-        hitPickUp.transform.SetParent(empty.transform);
-        hitPickUp.transform.localPosition = hitPickUp.transform.GetComponent<OffsetInfo>().pickupPositionOffset;
-        hitPickUp.transform.localRotation = Quaternion.identity;
-        hitPickUp.transform.localScale = hitPickUp.transform.GetComponent<OffsetInfo>().pickupScaleOffset;
-        hitObject.transform.GetComponent<Node>().occupied = false;
-        inHand = true;
+        if(hitPickUp.transform.tag == "SmeltOven")
+        {
+            //check bools en aan de hand daarvan pak huidige child of instantiate nieuw
+        }
+        if(hitPickUp.transform.tag == "Wasbak")
+        {
+            //pak child op
+        }
     }
 
     [System.Obsolete]
