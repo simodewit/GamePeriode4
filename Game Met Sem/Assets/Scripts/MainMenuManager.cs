@@ -47,22 +47,7 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
 
     #endregion
 
-    #region update/start
-
-    public void Start()
-    {
-        OnClickApplyButton();
-    }
-
-    public void Update()
-    {
-        OptionsManager();
-    }
-
-    #endregion
-
     #region button functions
-
     public void OnClickPlay()
     {
         ButtonClickSound.Play();
@@ -211,7 +196,7 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
     {
         if (multiplayerCreate)
         {
-            if(roomName.text != "")
+            if (roomName.text != "")
             {
                 PhotonNetwork.CreateRoom(roomName.text);
             }
@@ -222,12 +207,12 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
         {
             if (roomNameJoin.text != "")
             {
-                PhotonNetwork.JoinRoom(roomNameJoin.text);               
+                PhotonNetwork.JoinRoom(roomNameJoin.text);
             }
             multiplayerJoin = false;
         }
 
-        if(singleplayer)
+        if (singleplayer)
         {
             PhotonNetwork.CreateRoom(randomName);
             singleplayer = false;
@@ -238,29 +223,5 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.LoadLevel("LobbyRoom");
     }
-
+}
     #endregion
-
-    #region options
-
-    public ResolutionList[] res;
-
-    public void OptionsManager()
-    {
-        AudioListener.volume = volumeSlider.value;
-    }
-
-    public void OnClickApplyButton()
-    {
-        Screen.SetResolution(res[resolutions.value].width, res[resolutions.value].height, fullscreen.isOn);
-    }
-}
-
-[System.Serializable]
-public class ResolutionList
-{
-    public int width;
-    public int height;
-}
-
-#endregion
