@@ -64,30 +64,30 @@ public class PickUpScriptSemm : MonoBehaviour
     [PunRPC]
     public void PickUpObject()
     {
-        Physics.Raycast(transform.position, transform.forward, out hitPickUp, 2);
-
-        bool hasTag = false;
-        for (int i = 0; i < listOfTags.Count; i++)
+        if (Physics.Raycast(transform.position, transform.forward, out hitPickUp, 2))
         {
-            if (hitPickUp.transform.tag == listOfTags[i])
+            bool hasTag = false;
+            for (int i = 0; i < listOfTags.Count; i++)
             {
-                hasTag = true;
-                break;
+                if (hitPickUp.transform.tag == listOfTags[i])
+                {
+                    hasTag = true;
+                    break;
+                }
             }
+            if (!hasTag)
+                return;
+
+            Physics.Raycast(empty.transform.position, -empty.transform.up, out hitNode);
+
+            hitPickUp.collider.enabled = false;
+            hitPickUp.transform.SetParent(empty.transform);
+            hitPickUp.transform.localPosition = hitPickUp.transform.GetComponent<OffsetInfo>().pickupPositionOffset;
+            hitPickUp.transform.localRotation = Quaternion.identity;
+            hitPickUp.transform.localScale = hitPickUp.transform.GetComponent<OffsetInfo>().pickupScaleOffset;
+            hitNode.transform.GetComponent<Node>().occupied = false;
+            inHand = true;
         }
-        if (!hasTag)
-            return;
-
-        Physics.Raycast(empty.transform.position, -empty.transform.up, out hitNode);
-
-        hitPickUp.collider.enabled = false;
-        hitPickUp.transform.SetParent(empty.transform);
-        hitPickUp.transform.localPosition = hitPickUp.transform.GetComponent<OffsetInfo>().pickupPositionOffset;
-        hitPickUp.transform.localRotation = Quaternion.identity;
-        hitPickUp.transform.localScale = hitPickUp.transform.GetComponent<OffsetInfo>().pickupScaleOffset;
-        hitNode.transform.GetComponent<Node>().occupied = false;
-        inHand = true;
-
     }
 
     [PunRPC]
@@ -114,20 +114,21 @@ public class PickUpScriptSemm : MonoBehaviour
     [PunRPC]
     public void RotateObject()
     {
-        bool hasTag = false;
-        for (int i = 0; i < listOfTags.Count; i++)
+        if (Physics.Raycast(transform.position, transform.forward, out hitToRotate, 2))
         {
-            if (hitPickUp.transform.tag == listOfTags[i])
+            bool hasTag = false;
+            for (int i = 0; i < listOfTags.Count; i++)
             {
-                hasTag = true;
-                break;
+                if (hitToRotate.transform.tag == listOfTags[i])
+                {
+                    hasTag = true;
+                    break;
+                }
             }
+            if (!hasTag)
+                return;
+
+            hitToRotate.transform.Rotate(new Vector3(0, 90, 0));
         }
-        if (!hasTag)
-            return;
-
-        Physics.Raycast(transform.position, transform.forward, out hitToRotate, 2);
-
-        hitToRotate.transform.Rotate(new Vector3(0, 90, 0));
     }
 }

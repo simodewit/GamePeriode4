@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.XR;
 using Photon.Pun;
 using System.Diagnostics.CodeAnalysis;
+using static UnityEngine.UI.ContentSizeFitter;
+using Photon.Pun.Demo.Cockpit;
 
 public class PickupItems : MonoBehaviour
 {
@@ -19,6 +21,7 @@ public class PickupItems : MonoBehaviour
     public List<string> listOfTagss = new();
     public WaveButton waveButton;
     private bool check;
+    public GameObject currentObject;
 
     public void Update()
     {
@@ -55,44 +58,54 @@ public class PickupItems : MonoBehaviour
     [PunRPC]
     public void PickUpItem()
     {
-        //Physics.Raycast(transform.position, transform.forward, out hitPickUp, 2);
-
-        //bool hasTag = false;
-        //for (int i = 0; i < listOfTags.Count; i++)
-        //{
-        //    if (hitPickUp.transform.tag == listOfTags[i])
-        //    {
-        //        hasTag = true;
-        //        break;
-        //    }
-        //}
-        //if (!hasTag)
-        //    return;
-
-        //print("PickedUp");
-        //Physics.Raycast(empty.transform.position, -empty.transform.up, out hitObject);
-
-        //hitPickUp.collider.enabled = false;
-        //hitPickUp.transform.SetParent(empty.transform);
-        //hitPickUp.transform.localPosition = hitPickUp.transform.GetComponent<OffsetInfo>().pickupPositionOffset;
-        //hitPickUp.transform.localRotation = Quaternion.identity;
-        //hitPickUp.transform.localScale = hitPickUp.transform.GetComponent<OffsetInfo>().pickupScaleOffset;
-        //hitObject.transform.GetComponent<Node>().occupied = false;
-        //inHand = true;
-
         Physics.Raycast(transform.position, transform.forward, out hitPickUp, 2);
 
         if (hitPickUp.transform.tag == "Mine")
         {
-            //instantiate
-        }
-        if(hitPickUp.transform.tag == "SmeltOven")
-        {
-            //check bools en aan de hand daarvan pak huidige child of instantiate nieuw
+            currentObject = PhotonNetwork.Instantiate("DIRTY ORE", transform.position, Quaternion.identity);
+            view.RPC("SpecificCode", RpcTarget.All, currentObject);
         }
         if(hitPickUp.transform.tag == "Wasbak")
         {
-            //pak child op
+            if(hitPickUp.transform.GetComponent<WasbakScript>().isWashed == true)
+            {
+                Destroy(hitPickUp.transform.GetChild(0).gameObject);
+                currentObject = PhotonNetwork.Instantiate("Nugget", transform.position, Quaternion.identity);
+                view.RPC("SpecificCode", RpcTarget.All, currentObject);
+            }
+            else
+            {
+                currentObject = hitPickUp.transform.GetChild(0).gameObject;
+                view.RPC("SpecificCode", RpcTarget.All, currentObject);
+            }
+        }
+        if (hitPickUp.transform.tag == "SmeltOven")
+        {
+            if (hitPickUp.transform.GetComponent<SmeltOvenScript>().isSmelted == true)
+            {
+                Destroy(hitPickUp.transform.GetChild(0).gameObject);
+                currentObject = PhotonNetwork.Instantiate("", transform.position, Quaternion.identity);
+                view.RPC("SpecificCode", RpcTarget.All, currentObject);
+            }
+            else
+            {
+                currentObject = hitPickUp.transform.GetChild(0).gameObject;
+                view.RPC("SpecificCode", RpcTarget.All, currentObject);
+            }
+        }
+        if (hitPickUp.transform.tag == "Gietvorm")
+        {
+            if(hitPickUp.transform.GetComponent<GietVormScript>().isFormed == true)
+            {
+                Destroy(hitPickUp.transform.GetChild(0).gameObject);
+                currentObject = PhotonNetwork.Instantiate("",transform.position, Quaternion.identity);
+                view.RPC("SpecificCode", RpcTarget.All, currentObject);
+            }
+            else
+            {
+                currentObject = hitPickUp.transform.GetChild(0).gameObject;
+                view.RPC("SpecificCode", RpcTarget.All, currentObject);
+            }
         }
     }
 
@@ -121,6 +134,69 @@ public class PickupItems : MonoBehaviour
         hitPickUp.transform.rotation = hitDrop.transform.FindChild("Place").transform.localRotation;
         inHand = false;
         print("Dropped it");
-
     }
+
+    [PunRPC]
+    public void SpecificCode(GameObject currentObject)
+    {
+        currentObject.transform.SetParent(empty.transform);
+        currentObject.transform.localPosition = hitPickUp.transform.GetComponent<OffsetInfo>().pickupPositionOffset;
+        currentObject.transform.localRotation = Quaternion.identity;
+        currentObject.transform.localScale = hitPickUp.transform.GetComponent<OffsetInfo>().pickupScaleOffset;
+        inHand = true;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //Physics.Raycast(transform.position, transform.forward, out hitPickUp, 2);
+
+    //bool hasTag = false;
+    //for (int i = 0; i < listOfTags.Count; i++)
+    //{
+    //    if (hitPickUp.transform.tag == listOfTags[i])
+    //    {
+    //        hasTag = true;
+    //        break;
+    //    }
+    //}
+    //if (!hasTag)
+    //    return;
+
+    //print("PickedUp");
+    //Physics.Raycast(empty.transform.position, -empty.transform.up, out hitObject);
+
+    //hitPickUp.collider.enabled = false;
+    //hitPickUp.transform.SetParent(empty.transform);
+    //hitPickUp.transform.localPosition = hitPickUp.transform.GetComponent<OffsetInfo>().pickupPositionOffset;
+    //hitPickUp.transform.localRotation = Quaternion.identity;
+    //hitPickUp.transform.localScale = hitPickUp.transform.GetComponent<OffsetInfo>().pickupScaleOffset;
+    //hitObject.transform.GetComponent<Node>().occupied = false;
+    //inHand = true;
 }
