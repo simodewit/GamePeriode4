@@ -43,7 +43,6 @@ public class PickupItems : MonoBehaviour
         if (!Input.GetButtonDown("Fire1"))
             return;
 
-        print("does work");
 
         if (!inHand)
         {
@@ -63,7 +62,7 @@ public class PickupItems : MonoBehaviour
         if (hitPickUp.transform.tag == "Mine")
         {
             currentObject = PhotonNetwork.Instantiate("DIRTY ORE", transform.position, Quaternion.identity);
-            view.RPC("SpecificCode", RpcTarget.All, currentObject);
+            view.RPC("SpecificCode", RpcTarget.All, currentObject.transform);
         }
         if(hitPickUp.transform.tag == "Wasbak")
         {
@@ -71,12 +70,12 @@ public class PickupItems : MonoBehaviour
             {
                 Destroy(hitPickUp.transform.GetChild(0).gameObject);
                 currentObject = PhotonNetwork.Instantiate("Nugget", transform.position, Quaternion.identity);
-                view.RPC("SpecificCode", RpcTarget.All, currentObject);
+                view.RPC("SpecificCode", RpcTarget.All, currentObject.transform);
             }
             else
             {
                 currentObject = hitPickUp.transform.GetChild(0).gameObject;
-                view.RPC("SpecificCode", RpcTarget.All, currentObject);
+                view.RPC("SpecificCode", RpcTarget.All, currentObject.transform);
             }
         }
         if (hitPickUp.transform.tag == "SmeltOven")
@@ -85,12 +84,12 @@ public class PickupItems : MonoBehaviour
             {
                 Destroy(hitPickUp.transform.GetChild(0).gameObject);
                 currentObject = PhotonNetwork.Instantiate("", transform.position, Quaternion.identity);
-                view.RPC("SpecificCode", RpcTarget.All, currentObject);
+                view.RPC("SpecificCode", RpcTarget.All, currentObject.transform);
             }
             else
             {
                 currentObject = hitPickUp.transform.GetChild(0).gameObject;
-                view.RPC("SpecificCode", RpcTarget.All, currentObject);
+                view.RPC("SpecificCode", RpcTarget.All, currentObject.transform);
             }
         }
         if (hitPickUp.transform.tag == "Gietvorm")
@@ -99,12 +98,12 @@ public class PickupItems : MonoBehaviour
             {
                 Destroy(hitPickUp.transform.GetChild(0).gameObject);
                 currentObject = PhotonNetwork.Instantiate("",transform.position, Quaternion.identity);
-                view.RPC("SpecificCode", RpcTarget.All, currentObject);
+                view.RPC("SpecificCode", RpcTarget.All, currentObject.transform);
             }
             else
             {
                 currentObject = hitPickUp.transform.GetChild(0).gameObject;
-                view.RPC("SpecificCode", RpcTarget.All, currentObject);
+                view.RPC("SpecificCode", RpcTarget.All, currentObject.transform);
             }
         }
     }
@@ -115,7 +114,6 @@ public class PickupItems : MonoBehaviour
     {
         Physics.Raycast(transform.position, transform.forward, out hitDrop, 2);
 
-        print("wtfff brooo");
         bool hasTag = false;
         for (int i = 0; i < listOfTagss.Count; i++)
         {
@@ -133,70 +131,15 @@ public class PickupItems : MonoBehaviour
         hitPickUp.transform.localScale = hitDrop.transform.FindChild("Place").transform.localScale;
         hitPickUp.transform.rotation = hitDrop.transform.FindChild("Place").transform.localRotation;
         inHand = false;
-        print("Dropped it");
     }
 
     [PunRPC]
-    public void SpecificCode(GameObject currentObject)
+    public void SpecificCode()
     {
-        currentObject.transform.SetParent(empty.transform);
+        currentObject.transform.parent = empty.transform;
         currentObject.transform.localPosition = hitPickUp.transform.GetComponent<OffsetInfo>().pickupPositionOffset;
         currentObject.transform.localRotation = Quaternion.identity;
         currentObject.transform.localScale = hitPickUp.transform.GetComponent<OffsetInfo>().pickupScaleOffset;
         inHand = true;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //Physics.Raycast(transform.position, transform.forward, out hitPickUp, 2);
-
-    //bool hasTag = false;
-    //for (int i = 0; i < listOfTags.Count; i++)
-    //{
-    //    if (hitPickUp.transform.tag == listOfTags[i])
-    //    {
-    //        hasTag = true;
-    //        break;
-    //    }
-    //}
-    //if (!hasTag)
-    //    return;
-
-    //print("PickedUp");
-    //Physics.Raycast(empty.transform.position, -empty.transform.up, out hitObject);
-
-    //hitPickUp.collider.enabled = false;
-    //hitPickUp.transform.SetParent(empty.transform);
-    //hitPickUp.transform.localPosition = hitPickUp.transform.GetComponent<OffsetInfo>().pickupPositionOffset;
-    //hitPickUp.transform.localRotation = Quaternion.identity;
-    //hitPickUp.transform.localScale = hitPickUp.transform.GetComponent<OffsetInfo>().pickupScaleOffset;
-    //hitObject.transform.GetComponent<Node>().occupied = false;
-    //inHand = true;
 }
