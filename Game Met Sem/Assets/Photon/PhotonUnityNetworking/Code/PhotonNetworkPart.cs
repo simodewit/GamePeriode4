@@ -2560,5 +2560,10 @@ namespace Photon.Pun
         {
             throw new NotImplementedException();
         }
+
+        public static GameObject Instantiate(GameObject dirtyOre, Transform transform)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

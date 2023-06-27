@@ -14,6 +14,7 @@ public class PickupItems : MonoBehaviour
     public RaycastHit hitPickUp;
     public RaycastHit hitObject;
     public RaycastHit hitDrop;
+    public PhotonView viewOre;
     public GameObject empty;
     public bool inHand;
     public PhotonView view;
@@ -22,6 +23,7 @@ public class PickupItems : MonoBehaviour
     public WaveButton waveButton;
     private bool check;
     public GameObject currentObject;
+    public GameObject dirtyOre;
 
     public void Update()
     {
@@ -60,15 +62,10 @@ public class PickupItems : MonoBehaviour
         Physics.Raycast(transform.position, transform.forward, out hitPickUp, 2);
 
         if (hitPickUp.transform.tag == "Mine")
-        {
-<<<<<<< Updated upstream
+        {  
+
             currentObject = PhotonNetwork.Instantiate("DIRTY ORE", transform.position, Quaternion.identity);
-            view.RPC("SpecificCode", RpcTarget.All, currentObject.transform);
-=======
-            GameObject gameObject1 = PhotonNetwork.InstantiateRoomObject("DIRTY ORE", empty.transform);
-            currentObject = gameObject1;
-            view.RPC("SpecificCode", RpcTarget.All, currentObject);
->>>>>>> Stashed changes
+            view.RPC("SpecificCode", RpcTarget.All, viewOre);
         }
         if(hitPickUp.transform.tag == "Wasbak")
         {
@@ -140,16 +137,12 @@ public class PickupItems : MonoBehaviour
     }
 
     [PunRPC]
-    public void SpecificCode()
+    public void SpecificCode(PhotonView view)
     {
-<<<<<<< Updated upstream
-        currentObject.transform.parent = empty.transform;
-=======
-        //currentObject.transform.SetParent(empty.transform);
->>>>>>> Stashed changes
-        currentObject.transform.localPosition = hitPickUp.transform.GetComponent<OffsetInfo>().pickupPositionOffset;
-        currentObject.transform.localRotation = Quaternion.identity;
-        currentObject.transform.localScale = hitPickUp.transform.GetComponent<OffsetInfo>().pickupScaleOffset;
+        view.gameObject.transform.parent = empty.transform;
+        view.gameObject.transform.localPosition = hitPickUp.transform.GetComponent<OffsetInfo>().pickupPositionOffset;
+        view.gameObject.transform.localRotation = Quaternion.identity;
+        view.gameObject.transform.localScale = hitPickUp.transform.GetComponent<OffsetInfo>().pickupScaleOffset;
         inHand = true;
     }
 }
