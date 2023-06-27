@@ -14,7 +14,7 @@ public class SmeltOvenScript : MonoBehaviour
     public ParticleSystem rook;
     public Light licht1;
     public Light licht2;
-    public bool check;
+    public bool isSmelted;
 
     public void Update()
     {
