@@ -61,8 +61,14 @@ public class PickupItems : MonoBehaviour
 
         if (hitPickUp.transform.tag == "Mine")
         {
+<<<<<<< Updated upstream
             currentObject = PhotonNetwork.Instantiate("DIRTY ORE", transform.position, Quaternion.identity);
             view.RPC("SpecificCode", RpcTarget.All, currentObject.transform);
+=======
+            GameObject gameObject1 = PhotonNetwork.InstantiateRoomObject("DIRTY ORE", empty.transform);
+            currentObject = gameObject1;
+            view.RPC("SpecificCode", RpcTarget.All, currentObject);
+>>>>>>> Stashed changes
         }
         if(hitPickUp.transform.tag == "Wasbak")
         {
@@ -136,7 +142,11 @@ public class PickupItems : MonoBehaviour
     [PunRPC]
     public void SpecificCode()
     {
+<<<<<<< Updated upstream
         currentObject.transform.parent = empty.transform;
+=======
+        //currentObject.transform.SetParent(empty.transform);
+>>>>>>> Stashed changes
         currentObject.transform.localPosition = hitPickUp.transform.GetComponent<OffsetInfo>().pickupPositionOffset;
         currentObject.transform.localRotation = Quaternion.identity;
         currentObject.transform.localScale = hitPickUp.transform.GetComponent<OffsetInfo>().pickupScaleOffset;
