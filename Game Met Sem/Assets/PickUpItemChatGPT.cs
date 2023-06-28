@@ -41,7 +41,7 @@ public class PickUpItemChatGPT : MonoBehaviourPunCallbacks
         if (!Input.GetButtonDown("Fire1"))
             return;
 
-        if (!inHand)
+        if (inHand)
         {
             photonView.RPC("PickUpItem", RpcTarget.All);
         }
