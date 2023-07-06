@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class PickUpScriptSemm : MonoBehaviour
 {
-    public WaveButton waveButton;
+    //public WaveButton waveButton;
     public bool inHand;
     public PhotonView view;
     public RaycastHit hitPickUp;
@@ -31,15 +31,15 @@ public class PickUpScriptSemm : MonoBehaviour
 
         if (!check)
         {
-            waveButton = GameObject.Find("ActivateWave").GetComponent<WaveButton>();
+            //waveButton = GameObject.Find("ActivateWave").GetComponent<WaveButton>();
             check = true;
         }
 
         if (!view.IsMine)
             return;
 
-        if(waveButton.inWave == true)
-            return;
+        //if(waveButton.inWave == true)
+            //return;
 
         if (Input.GetButtonDown("Fire2"))
         {

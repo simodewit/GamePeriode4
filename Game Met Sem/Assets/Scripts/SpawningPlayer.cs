@@ -40,7 +40,7 @@ public class SpawningPlayer : MonoBehaviourPunCallbacks
     [PunRPC]
     public void HostClient()
     {
-        players[0] = PhotonNetwork.Instantiate("Player 1", transform.position, Quaternion.identity);
+        players[0] = PhotonNetwork.Instantiate("character voor game (1) (1) Variant", transform.position, Quaternion.identity);
         players[0].GetComponent<Renderer>().material = materials[0];
     }
 
@@ -49,19 +49,19 @@ public class SpawningPlayer : MonoBehaviourPunCallbacks
     {
         if (players[1] == null)
         {
-            players[1] = PhotonNetwork.Instantiate("Player 1", transform.position, Quaternion.identity);
+            players[1] = PhotonNetwork.Instantiate("character voor game (1) (1) Variant", transform.position, Quaternion.identity);
             players[1].GetComponent<Renderer>().material = materials[1];
             return;
         }
         else if (players[2] == null)
         {
-            players[2] = PhotonNetwork.Instantiate("Player 1", transform.position, Quaternion.identity);
+            players[2] = PhotonNetwork.Instantiate("character voor game (1) (1) Variant", transform.position, Quaternion.identity);
             players[2].GetComponent<Renderer>().material = materials[2];
             return;
         }
         else if (players[3] == null)
         {
-            players[3] = PhotonNetwork.Instantiate("Player 1", transform.position, Quaternion.identity);
+            players[3] = PhotonNetwork.Instantiate("character voor game (1) (1) Variant", transform.position, Quaternion.identity);
             players[3].GetComponent<Renderer>().material = materials[3];
             return;
         }
@@ -74,6 +74,6 @@ public class SpawningPlayer : MonoBehaviourPunCallbacks
     [PunRPC]
     public void HostLeft()
     {
-        panelHostLeft.SetActive(true);
+        //panelHostLeft.SetActive(true);
     }
 }
