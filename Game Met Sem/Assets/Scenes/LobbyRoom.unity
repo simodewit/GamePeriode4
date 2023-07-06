@@ -1638,8 +1638,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 178538102}
-  - component: {fileID: 178538101}
   - component: {fileID: 178538103}
+  - component: {fileID: 178538104}
   m_Layer: 0
   m_Name: LobbySpawner
   m_TagString: Untagged
@@ -1647,31 +1647,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &178538101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 178538100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b563d459f73f8c246a1aa8abb2ee0510, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  view: {fileID: 0}
-  panelFivePlayers: {fileID: 446506857}
-  panelHostLeft: {fileID: 1632671656}
-  players:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  materials:
-  - {fileID: 2100000, guid: d4b2086ee9e6f4f438e344a35a91baa4, type: 2}
-  - {fileID: 2100000, guid: 96daa69515e81714c820de39525269ce, type: 2}
-  - {fileID: 2100000, guid: b24d05dd4b212934382aebef1fd9e053, type: 2}
-  - {fileID: 2100000, guid: c89866ac351d5f449aac4cbda6d09ff5, type: 2}
 --- !u!4 &178538102
 Transform:
   m_ObjectHideFlags: 0
@@ -1709,6 +1684,31 @@ MonoBehaviour:
   sceneViewId: 226
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &178538104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178538100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b563d459f73f8c246a1aa8abb2ee0510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  view: {fileID: 0}
+  panelFivePlayers: {fileID: 0}
+  panelHostLeft: {fileID: 0}
+  players:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  materials:
+  - {fileID: 2100000, guid: 96daa69515e81714c820de39525269ce, type: 2}
+  - {fileID: 2100000, guid: 35169435c0fe81242899cbeee64b238e, type: 2}
+  - {fileID: 2100000, guid: 490c42fada2e23f4295607fdd54c9f15, type: 2}
+  - {fileID: 2100000, guid: f395e6d6f6d6cd548ba45320aff0270b, type: 2}
 --- !u!1 &191019032
 GameObject:
   m_ObjectHideFlags: 0

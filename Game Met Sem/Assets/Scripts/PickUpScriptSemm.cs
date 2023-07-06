@@ -18,11 +18,6 @@ public class PickUpScriptSemm : MonoBehaviour
     public GameObject empty;
     private bool check;
 
-    public void Start()
-    {
-
-    }
-
     public void Update()
     {
 
