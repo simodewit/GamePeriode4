@@ -8302,6 +8302,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-3124865536943360990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3968910406583356669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97b237ce77e40634bbda250616e8a741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  view: {fileID: 0}
+  empty: {fileID: 0}
 --- !u!114 &517857299190854782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8379,6 +8393,20 @@ MonoBehaviour:
   - Mine
   - SmeltOven
   - SnelleWasbak
+  empty: {fileID: 8169931327178438351}
+--- !u!114 &4164208987211799304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3968910406583356669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97b237ce77e40634bbda250616e8a741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  view: {fileID: 0}
   empty: {fileID: 8169931327178438351}
 --- !u!114 &6088020455009025904
 MonoBehaviour:
