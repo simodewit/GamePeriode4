@@ -18,20 +18,23 @@ public class PickupOre : MonoBehaviour
 
     void Update()
     {
-        if(Physics.Raycast(transform.position, transform.forward, out hit, 2))
+        if(Input.GetButtonDown("0"))
         {
-            if(hit.transform.tag == "Mine")
+            if (Physics.Raycast(transform.position, transform.forward, out hit, 2))
             {
-                if(inHands == false)
+                if (hit.transform.tag == "Mine")
                 {
-                    view.RPC("MakeOre", RpcTarget.All);
+                    if (inHands == false)
+                    {
+                        view.RPC("MakeOre", RpcTarget.All);
+                    }
                 }
-            }
-            else
-            {
-                if(inHands == true)
+                else
                 {
-                    view.RPC("DeliverOre", RpcTarget.All);
+                    if (inHands == true)
+                    {
+                        view.RPC("DeliverOre", RpcTarget.All);
+                    }
                 }
             }
         }
