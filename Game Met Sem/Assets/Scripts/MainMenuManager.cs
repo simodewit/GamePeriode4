@@ -45,6 +45,8 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
     public bool multiplayerJoin;
     public bool singleplayer;
 
+    public ResolutionList[] res;
+
     #endregion
 
     #region button functions
@@ -223,5 +225,35 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.LoadLevel("LobbyRoom");
     }
+
+    public void Start()
+    {
+        DontDestroyOnLoad(this);
+        OnClickApplyButton();
+    }
+
+    public void Update()
+    {
+        OptionsManager();
+    }
+
+
+    public void OptionsManager()
+    {
+        AudioListener.volume = volumeSlider.value;
+    }
+
+    public void OnClickApplyButton()
+    {
+        Screen.SetResolution(res[resolutions.value].width, res[resolutions.value].height, fullscreen.isOn);
+    }
+}
+
+[System.Serializable]
+public class ResolutionList
+{
+    public int width;
+    public int height;
+}
 }
     #endregion
