@@ -21023,8 +21023,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   info:
   - time: 10
+    trucks: 3
+  - time: 10
     trucks: 5
-  button: {fileID: 0}
+  - time: 5
+    trucks: 5
+  - time: 5
+    trucks: 7
+  - time: 5
+    trucks: 10
+  button: {fileID: 2121369306}
   timer: 0
   truck: {fileID: 2306524634970623476, guid: 113146cd3c3412d45abc725765c84c24, type: 3}
   place3: {fileID: 1657496938}

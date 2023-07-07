@@ -43,7 +43,7 @@ public class PickupOre : MonoBehaviour
     [PunRPC]
     public void MakeOre()
     {
-        ore = PhotonNetwork.Instantiate("ore", transform.position, Quaternion.identity);
+        ore = PhotonNetwork.Instantiate("DIRTY ORE", transform.position, Quaternion.identity);
         ore.transform.SetParent(empty.transform);
         inHands = true;
     }
