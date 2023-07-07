@@ -53,5 +53,6 @@ public class PickupOre : MonoBehaviour
     {
         Destroy(ore);
         inHands = false;
+        hit.transform.GetComponent<TruckAIScript>().isDelivered = true;
     }
 }
