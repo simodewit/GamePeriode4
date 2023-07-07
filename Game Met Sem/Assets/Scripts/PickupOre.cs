@@ -18,7 +18,7 @@ public class PickupOre : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetButtonDown("0"))
+        if(Input.GetButtonDown("Fire1"))
         {
             if (Physics.Raycast(transform.position, transform.forward, out hit, 2))
             {
