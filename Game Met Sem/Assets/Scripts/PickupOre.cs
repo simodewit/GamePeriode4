@@ -37,6 +37,7 @@ public class PickupOre : MonoBehaviour
         }
     }
 
+    [PunRPC]
     public void MakeOre()
     {
         ore = PhotonNetwork.Instantiate("ore", transform.position, Quaternion.identity);
@@ -44,6 +45,7 @@ public class PickupOre : MonoBehaviour
         inHands = true;
     }
 
+    [PunRPC]
     public void DeliverOre()
     {
         Destroy(ore);
