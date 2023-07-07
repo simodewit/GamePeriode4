@@ -13704,9 +13704,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropPositionOffset: {x: 0, y: 0.5, z: 0}
-  dropScaleOffset: {x: 1, y: 1, z: 1}
+  dropScaleOffset: {x: 0.2, y: 0.2, z: 0.2}
   pickupPositionOffset: {x: 0, y: 0, z: 0}
-  pickupScaleOffset: {x: 1, y: 1, z: 1}
+  pickupScaleOffset: {x: 0.2, y: 0.2, z: 0.2}
 --- !u!1001 &391283267
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74516,6 +74516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6951ae7587b6aff439597f9150e33ed0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  view: {fileID: 0}
   inWave: 0
   waveSpawner: {fileID: 499219805}
 --- !u!114 &2121369309
