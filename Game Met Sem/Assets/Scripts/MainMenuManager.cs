@@ -255,5 +255,4 @@ public class ResolutionList
     public int width;
     public int height;
 }
-}
     #endregion
