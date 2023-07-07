@@ -19,6 +19,7 @@ public class WaveButton : MonoBehaviour
         view.RPC("Abc", RpcTarget.All);
     }
 
+    [PunRPC]
     public void Abc()
     {
         inWave = true;
