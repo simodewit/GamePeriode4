@@ -46,7 +46,15 @@ public class Movement : MonoBehaviour
             transform.position = new Vector3(10, 2, 1);
         }
 
-        view.RPC("WalkParticles", RpcTarget.All);
+        if (movement.x != 0 || movement.z != 0)
+        {
+            view.RPC("WalkParticles", RpcTarget.All);
+        }
+        else if (movement.x == 0 || movement.z == 0)
+        {
+            view.RPC("WalkParticles", RpcTarget.All);
+        }
+        
        
     }
 
@@ -75,6 +83,7 @@ public class Movement : MonoBehaviour
 
     }
 
+    [PunRPC]
     public void WalkParticles()
     {
         if (movement.x != 0 || movement.z != 0)
