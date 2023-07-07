@@ -546,6 +546,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 86a09eed9e3b43e4a85d83aba71d9b2c,
         type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 86a09eed9e3b43e4a85d83aba71d9b2c,
+        type: 3}
       propertyPath: m_TagString
       value: Truck
       objectReference: {fileID: 0}
@@ -573,8 +578,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &3811079216205831733
-MeshCollider:
+--- !u!65 &7284858054725182198
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -583,10 +588,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4493585093827132993, guid: 86a09eed9e3b43e4a85d83aba71d9b2c, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 2.04, y: 2.5268545, z: 6.03}
+  m_Center: {x: 0, y: 1.241977, z: -0.47825503}
 --- !u!114 &4242568069008986692
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8371,6 +8371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2847cd83f2cccf440b9e98a849282381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveButton: {fileID: 0}
   inHand: 0
   view: {fileID: 6088020455009025904}
   listOfTags:

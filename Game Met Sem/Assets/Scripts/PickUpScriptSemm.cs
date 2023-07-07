@@ -26,7 +26,7 @@ public class PickUpScriptSemm : MonoBehaviour
 
         if (!check)
         {
-            waveButton = GameObject.Find("ActivateWave").GetComponent<WaveButton>();
+            waveButton = GameObject.Find("Button").GetComponent<WaveButton>();
             check = true;
         }
 

@@ -20,7 +20,7 @@ public class PickupOre : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire1"))
         {
-            if (Physics.Raycast(transform.position, transform.forward, out hit, 2))
+            if (Physics.Raycast(transform.position + new Vector3(0,1,0), transform.forward, out hit, 2))
             {
                 if (hit.transform.tag == "Mine")
                 {
@@ -45,14 +45,15 @@ public class PickupOre : MonoBehaviour
     {
         ore = PhotonNetwork.Instantiate("DIRTY ORE", transform.position, Quaternion.identity);
         ore.transform.SetParent(empty.transform);
+        ore.transform.localPosition = Vector3.zero;
         inHands = true;
     }
 
     [PunRPC]
     public void DeliverOre()
     {
+        hit.transform.gameObject.GetComponent<TruckAIScript>().isDelivered = true;
         Destroy(ore);
         inHands = false;
-        hit.transform.GetComponent<TruckAIScript>().isDelivered = true;
     }
 }
