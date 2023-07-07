@@ -18,7 +18,7 @@ public class Movement : MonoBehaviour
     public Vector3 lookRotation;
     public bool onGround;
     private Vector3 snapDing;
-    //public ParticleSystem runStofWolk;
+    public ParticleSystem runStofWolk;
     private bool isRunning;
 
     public Animator anim;
@@ -46,21 +46,14 @@ public class Movement : MonoBehaviour
             transform.position = new Vector3(10, 2, 1);
         }
 
-        if (movement.x != 0 || movement.z != 0) 
-        {
-            anim.SetBool("New Bool", true);
-        }
-        else if(movement.x == 0 || movement.z == 0)
-        {
-            anim.SetBool("New Bool", false);
-        }
+        view.RPC("WalkParticles", RpcTarget.All);
        
     }
 
     public void FixedUpdate()
     {
-        //if (!view.IsMine)
-            //return;
+        if (!view.IsMine)
+            return;
 
         if (!onGround)
         {
@@ -80,6 +73,20 @@ public class Movement : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, look, rotateSpeed);
         }
 
+    }
+
+    public void WalkParticles()
+    {
+        if (movement.x != 0 || movement.z != 0)
+        {
+            anim.SetBool("New Bool", true);
+            runStofWolk.gameObject.SetActive(true);
+        }
+        else if (movement.x == 0 || movement.z == 0)
+        {
+            anim.SetBool("New Bool", false);
+            runStofWolk.gameObject.SetActive(false);
+        }
     }
 
     #endregion
