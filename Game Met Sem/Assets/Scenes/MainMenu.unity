@@ -6191,7 +6191,15 @@ MonoBehaviour:
   multiplayerCreate: 0
   multiplayerJoin: 0
   singleplayer: 0
-  res: []
+  res:
+  - width: 3840
+    height: 2160
+  - width: 2048
+    height: 1080
+  - width: 1920
+    height: 1080
+  - width: 1280
+    height: 720
 --- !u!114 &1325180364
 MonoBehaviour:
   m_ObjectHideFlags: 0
